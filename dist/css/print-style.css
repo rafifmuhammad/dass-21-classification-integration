@@ -1,0 +1,48 @@
+* {
+    scroll-behavior: smooth;
+}
+
+.wrapper {
+    width: 80%;
+    margin-inline: auto;
+}
+
+.box-header {
+    display: flex;
+    margin-top: 24px;
+    margin-bottom: 24px;
+    align-items: center;
+    margin-bottom: 32px;
+}
+
+img {
+    margin-right: 64px;
+}
+
+.box-header h1 {
+    font-size: 24px;
+    color: #338155;
+    font-weight: bold;
+    text-align: center;
+}
+
+.box-header h2:first-of-type {
+    font-size: 32px;
+    color: #338155;
+    font-weight: bold;
+    text-align: center;
+}
+
+.box-header h2 {
+    font-size: 24px;
+    color: #338155;
+    font-weight: bold;
+    text-align: center;
+}
+
+.box-header h3 {
+    font-size: 18px;
+    color: #338155;
+    font-weight: bold;
+    text-align: center;
+}
