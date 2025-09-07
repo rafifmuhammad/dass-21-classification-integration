@@ -434,7 +434,7 @@ if ($_SESSION['role'] != 'Admin') {
                       </tr>
                       <!-- D6 -->
                       <tr>
-                        <td>Saya merasa bahwa saya mudah tersinggung.</td>
+                        <td>Saya merasa bahwa saya tidak berharga sebagai seorang manusia.</td>
                         <td>
                           <div class="form-check form-check-inline">
                             <input

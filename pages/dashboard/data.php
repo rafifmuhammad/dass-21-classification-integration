@@ -19,6 +19,13 @@ $page = isset($_GET['page']) ? (int)$_GET['page'] : 1;
 $start = ($page - 1) * $perPage;
 
 $pagination = queryWithPagination("SELECT * FROM tb_data", 10);
+
+if (isset($_POST['cari'])) {
+    $q = $_POST['q'];
+
+    $pagination = queryWithPagination("SELECT * FROM tb_data WHERE Kelas LIKE '%$q%' OR kd_data LIKE '%$q%' OR Jenis LIKE '%$q%'", 10);
+}
+
 $data = $pagination['data'];
 $totalPages = $pagination['total_pages'];
 $page = $pagination['current_page'];
@@ -220,9 +227,9 @@ if (isset($_POST['split_data'])) {
                                                 <button class="btn btn-info btn-sm" name="split_data"><i class="ri-a-b"></i> Split Data</button>
                                             </form>
                                         </div>
-                                        <form action="">
-                                            <input class="form-control form-control-sm" type="text" placeholder="Cari">
-                                            <button class="btn btn-primary btn-sm"><i class="ri-search-line"></i> Cari Data</button>
+                                        <form action="" method="post">
+                                            <input class="form-control form-control-sm" type="text" placeholder="Cari" name="q">
+                                            <button class="btn btn-primary btn-sm" name="cari"><i class="ri-search-line"></i> Cari Data</button>
                                         </form>
                                         <!-- Modal Import Excel Start -->
                                         <div class="modal fade" id="importExcel" tabindex="-1" role="dialog" aria-labelledby="importExcelLabel" aria-hidden="true">

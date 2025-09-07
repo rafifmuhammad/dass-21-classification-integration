@@ -14,10 +14,22 @@ $start = ($page - 1) * $perPage;
 
 if ($_SESSION['role'] == 'Admin') {
   $pagination = queryWithPagination("SELECT * FROM tb_pengujian", 10);
+
+  if (isset($_POST['cari'])) {
+    $q = $_POST['q'];
+
+    $pagination = queryWithPagination("SELECT * FROM tb_pengujian WHERE hasil_klasifikasi LIKE '%$q%'", 10);
+  }
 } else {
   $kd_user = $_SESSION['kd_user'];
 
   $pagination = queryWithPagination("SELECT * FROM tb_pengujian WHERE kd_user = '$kd_user'", 10);
+
+  if (isset($_POST['cari'])) {
+    $q = $_POST['q'];
+
+    $pagination = queryWithPagination("SELECT * FROM tb_pengujian WHERE kd_user = '$kd_user' AND Kelas LIKE %$q% OR Jenis LIKE %$q%", 10);
+  }
 }
 
 $testing = $pagination['data'];
@@ -192,12 +204,13 @@ $page = $pagination['current_page'];
                   <h4 class="card-title">Tabel Riwayat Pengujian</h4>
                   <div class="table-action justify-content-between">
                     <a href="./file_preview.php" class="btn btn-warning btn-sm text-white"><i class="ri-printer-line"></i> Cetak Pengujian</a>
-                    <form action="">
+                    <form action="" method="post">
                       <input
                         class="form-control form-control-sm"
                         type="text"
-                        placeholder="Cari" />
-                      <button class="btn btn-primary btn-sm">
+                        placeholder="Cari"
+                        name="q" />
+                      <button class="btn btn-primary btn-sm" name="cari">
                         <i class="ri-search-line"></i> Cari Tes
                       </button>
                     </form>
