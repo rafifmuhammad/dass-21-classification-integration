@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-include './includes/functions.php';
+include __DIR__ . '/includes/functions.php';
 
 if (isset($_SESSION['login'])) {
   header("Location: ./pages/dashboard/index.php");
@@ -40,7 +40,7 @@ if (isset($_POST['submit'])) {
     rel="stylesheet" />
   <link
     rel="stylesheet"
-    href="./dist/bootstrap-4.0.0-dist/css/bootstrap.css" />
+    href="./dist/bootstrap-4.0.0-dist/css/bootstrap.min.css" />
   <link rel="stylesheet" href="./dist/css/style.css" />
   <link
     rel="stylesheet"
@@ -57,9 +57,7 @@ if (isset($_POST['submit'])) {
         <div class="box">
           <img src="./img/ilustration-login.jpg" alt="ilustation-1" />
           <p>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Mollitia
-            dolores dicta blanditiis nam alias praesentium similique iste
-            officia optio eaque?
+            Daftar sekarang untuk mendapatkan akses penuh ke semua fitur dan layanan evaluasi kesehatan mental mandiri. Prosesnya cepat dan mudah, cukup isi data diri dan buat akun.
           </p>
         </div>
         <div class="box">

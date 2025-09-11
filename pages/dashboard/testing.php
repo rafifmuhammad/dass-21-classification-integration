@@ -44,7 +44,7 @@ if ($endPage - $startPage + 1 < $jumlahLink) {
     rel="stylesheet" />
   <link
     rel="stylesheet"
-    href="./../../dist/bootstrap-4.0.0-dist/css/bootstrap.css" />
+    href="./../../dist/bootstrap-4.0.0-dist/css/bootstrap.min.css" />
   <link rel="stylesheet" href="./../../dist/css/dashboard-style.css" />
   <link
     rel="stylesheet"
@@ -197,25 +197,14 @@ if ($endPage - $startPage + 1 < $jumlahLink) {
               <div class="card text-left">
                 <div class="card-body">
                   <h4 class="card-title">Tabel Data Testing</h4>
-                  <div class="table-action justify-content-end">
-                    <form action="">
-                      <input
-                        class="form-control form-control-sm"
-                        type="text"
-                        placeholder="Cari" />
-                      <button class="btn btn-primary btn-sm">
-                        <i class="ri-search-line"></i> Cari Data
-                      </button>
-                    </form>
-                  </div>
-                  <table class="table table-hover">
+                  <table id="myTable" class="table table-striped table-bordered w-100">
                     <thead>
                       <tr>
-                        <th scope="col">No</th>
-                        <th scope="col">Kode Data</th>
-                        <th scope="col">Kelas</th>
-                        <th scope="col">Jenis</th>
-                        <th scope="col" colspan="3">Aksi</th>
+                        <th class="text-center align-middle text-dark font-weight-bold">No</th>
+                        <th class="text-center align-middle text-dark font-weight-bold">Kode Data</th>
+                        <th class="text-center align-middle text-dark font-weight-bold">Kelas</th>
+                        <th class="text-center align-middle text-dark font-weight-bold">Jenis</th>
+                        <th class="text-center align-middle text-dark font-weight-bold">Aksi</th>
                       </tr>
                     </thead>
                     <tbody>
@@ -223,11 +212,11 @@ if ($endPage - $startPage + 1 < $jumlahLink) {
                       $i = 1;
                       foreach ($dataTesting as $data) : ?>
                         <tr>
-                          <th scope="row"><?= $i; ?></th>
-                          <td><?= $data['kd_data'] ?></td>
+                          <td class="text-center" scope="row"><?= $i; ?></td>
+                          <td class="text-center"><?= $data['kd_data'] ?></td>
                           <td><?= $data['Kelas'] ?></td>
-                          <td class="<?php echo $dt['Jenis'] == 'Training' ? 'text-success' : 'text-info'; ?>"><?= $data['Jenis'] ?></td>
-                          <td>
+                          <td class="<?php echo $dt['Jenis'] == 'Training' ? 'text-success' : 'text-info'; ?> text-center"><?= $data['Jenis'] ?></td>
+                          <td class="text-center">
                             <a
                               href="./classification.php?p1=<?= $data['P1']; ?>&p2=<?= $data['P2']; ?>&p3=<?= $data['P3']; ?>"
                               class="btn btn-success btn-sm"><i class="ri-test-tube-line"></i></a>
@@ -277,22 +266,34 @@ if ($endPage - $startPage + 1 < $jumlahLink) {
   </div>
   <!-- Main wrapper end -->
 
-  <script
-    src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
-    integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
-    crossorigin="anonymous"></script>
-  <script
-    src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"
-    integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
-    crossorigin="anonymous"></script>
-  <script
-    src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"
-    integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
-    crossorigin="anonymous"></script>
+  <!-- jQuery -->
+  <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
+  <!-- Bootstrap 4 JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+  <!-- DataTables BS4 -->
+  <link rel="stylesheet" href="https://cdn.datatables.net/1.13.5/css/dataTables.bootstrap4.min.css">
+  <script src="https://cdn.datatables.net/1.13.5/js/jquery.dataTables.min.js"></script>
+  <script src="https://cdn.datatables.net/1.13.5/js/dataTables.bootstrap4.min.js"></script>
   <script>
     $(document).ready(function() {
       $(".toggle-sidebar-btn").on("click", function() {
         $(".main-app").toggleClass("sidebar-collapsed");
+      });
+    });
+
+    $(document).ready(function() {
+      $("#myTable").DataTable({
+        paging: false,
+        ordering: true,
+        searching: true,
+        info: true,
+        lengthMenu: [5, 10, 25, 50],
+        pageLength: 5,
+        language: {
+          search: "",
+          searchPlaceholder: "Cari Data..."
+        },
+        dom: '<"row mb-3"<"col-sm-6 d-flex align-items-center custom-left"><"col-sm-6 d-flex justify-content-end"f>>rtip'
       });
     });
   </script>

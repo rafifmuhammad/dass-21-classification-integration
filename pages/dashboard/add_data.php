@@ -37,7 +37,7 @@ if (isset($_POST['submit'])) {
       rel="stylesheet" />
     <link
       rel="stylesheet"
-      href="./../../dist/bootstrap-4.0.0-dist/css/bootstrap.css" />
+      href="./../../dist/bootstrap-4.0.0-dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="./../../dist/css/dashboard-style.css" />
     <link
       rel="stylesheet"

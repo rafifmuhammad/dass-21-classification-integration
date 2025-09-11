@@ -13,23 +13,11 @@ $page = isset($_GET['page']) ? (int)$_GET['page'] : 1;
 $start = ($page - 1) * $perPage;
 
 if ($_SESSION['role'] == 'Admin') {
-  $pagination = queryWithPagination("SELECT * FROM tb_pengujian", 10);
-
-  if (isset($_POST['cari'])) {
-    $q = $_POST['q'];
-
-    $pagination = queryWithPagination("SELECT * FROM tb_pengujian WHERE hasil_klasifikasi LIKE '%$q%'", 10);
-  }
+  $pagination = queryWithPagination("SELECT * FROM tb_pengujian, tb_user WHERE tb_pengujian.kd_user = tb_user.kd_user", 10);
 } else {
   $kd_user = $_SESSION['kd_user'];
 
-  $pagination = queryWithPagination("SELECT * FROM tb_pengujian WHERE kd_user = '$kd_user'", 10);
-
-  if (isset($_POST['cari'])) {
-    $q = $_POST['q'];
-
-    $pagination = queryWithPagination("SELECT * FROM tb_pengujian WHERE kd_user = '$kd_user' AND Kelas LIKE %$q% OR Jenis LIKE %$q%", 10);
-  }
+  $pagination = queryWithPagination("SELECT * FROM tb_pengujian, tb_user WHERE tb_pengujian.kd_user = tb_user.kd_user AND kd_user = '$kd_user'", 10);
 }
 
 $testing = $pagination['data'];
@@ -49,7 +37,7 @@ $page = $pagination['current_page'];
     rel="stylesheet" />
   <link
     rel="stylesheet"
-    href="./../../dist/bootstrap-4.0.0-dist/css/bootstrap.css" />
+    href="./../../dist/bootstrap-4.0.0-dist/css/bootstrap.min.css" />
   <link rel="stylesheet" href="./../../dist/css/dashboard-style.css" />
   <link
     rel="stylesheet"
@@ -202,28 +190,19 @@ $page = $pagination['current_page'];
               <div class="card text-left">
                 <div class="card-body">
                   <h4 class="card-title">Tabel Riwayat Pengujian</h4>
-                  <div class="table-action justify-content-between">
-                    <a href="./file_preview.php" class="btn btn-warning btn-sm text-white"><i class="ri-printer-line"></i> Cetak Pengujian</a>
-                    <form action="" method="post">
-                      <input
-                        class="form-control form-control-sm"
-                        type="text"
-                        placeholder="Cari"
-                        name="q" />
-                      <button class="btn btn-primary btn-sm" name="cari">
-                        <i class="ri-search-line"></i> Cari Tes
-                      </button>
-                    </form>
-                  </div>
-                  <table class="table table-hover">
+                  <table id="myTable" class="table table-striped table-bordered w-100">
                     <thead>
                       <tr>
-                        <th scope="col">No</th>
-                        <th scope="col">Kode Pengujian</th>
-                        <th scope="col">Kode Pengguna</th>
-                        <th scope="col">Hasil Klasifikasi</th>
-                        <th scope="col">Tanggal Pengujian</th>
-                        <th scope="col" colspan="2">Aksi</th>
+                        <th rowspan="2" class="text-center align-middle text-dark font-weight-bold">No</th>
+                        <th rowspan="2" class="text-center align-middle text-dark font-weight-bold">Kode Pengujian</th>
+                        <th rowspan="2" class="text-center align-middle text-dark font-weight-bold">Nama Pengguna</th>
+                        <th rowspan="2" class="text-center align-middle text-dark font-weight-bold">Hasil Klasifikasi</th>
+                        <th rowspan="2" class="text-center align-middle text-dark font-weight-bold">Tanggal Pengujian</th>
+                        <th colspan="2" class="text-center align-middle text-dark font-weight-bold">Aksi</th>
+                      </tr>
+                      <tr>
+                        <td class="text-center font-weight-bold text-dark">Edit</td>
+                        <td class="text-center font-weight-bold text-dark">Delete</td>
                       </tr>
                     </thead>
                     <tbody>
@@ -232,13 +211,15 @@ $page = $pagination['current_page'];
                       $i = 1;
                       foreach ($testing as $ts) : ?>
                         <tr>
-                          <th scope="row"><?= $i; ?></th>
-                          <td><?= $ts['kd_pengujian']; ?></td>
-                          <td><?= $ts['kd_user']; ?></td>
+                          <th class="text-center" scope="row"><?= $i; ?></th>
+                          <td class="text-center"><?= $ts['kd_pengujian']; ?></td>
+                          <td><?= $ts['nama']; ?></td>
                           <td class="text-success font-weight-bold"><?= $ts['hasil_klasifikasi']; ?></td>
-                          <td><?= $ts['tanggal_pengujian']; ?></td>
-                          <td>
+                          <td class="text-center"><?= $ts['tanggal_pengujian']; ?></td>
+                          <td class="text-center">
                             <a href="./delete_test.php?kd_pengujian=<?= $ts['kd_pengujian']; ?>" class="btn btn-danger btn-sm" onclick="return confirm('Yakin ingin menghapus data?');"><i class="ri-delete-bin-line"></i></a>
+                          </td>
+                          <td class="text-center">
                             <a href="./detail_pengujian.php?kd_pengujian=<?= $ts['kd_pengujian']; ?>" class="btn btn-info btn-sm"><i class="ri-more-fill"></i></a>
                           </td>
                         </tr>
@@ -283,23 +264,38 @@ $page = $pagination['current_page'];
   </div>
   <!-- Main wrapper end -->
 
-  <script
-    src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
-    integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
-    crossorigin="anonymous"></script>
-  <script
-    src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"
-    integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
-    crossorigin="anonymous"></script>
-  <script
-    src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"
-    integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
-    crossorigin="anonymous"></script>
+  <!-- jQuery -->
+  <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
+  <!-- Bootstrap 4 JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+  <!-- DataTables BS4 -->
+  <link rel="stylesheet" href="https://cdn.datatables.net/1.13.5/css/dataTables.bootstrap4.min.css">
+  <script src="https://cdn.datatables.net/1.13.5/js/jquery.dataTables.min.js"></script>
+  <script src="https://cdn.datatables.net/1.13.5/js/dataTables.bootstrap4.min.js"></script>
   <script>
     $(document).ready(function() {
       $(".toggle-sidebar-btn").on("click", function() {
         $(".main-app").toggleClass("sidebar-collapsed");
       });
+    });
+
+    $(document).ready(function() {
+      $("#myTable").DataTable({
+        paging: false,
+        ordering: true,
+        searching: true,
+        info: true,
+        lengthMenu: [5, 10, 25, 50],
+        pageLength: 5,
+        language: {
+          search: "",
+          searchPlaceholder: "Cari Pengguna..."
+        },
+        dom: '<"row mb-3"<"col-sm-6 d-flex align-items-center custom-left"><"col-sm-6 d-flex justify-content-end"f>>rtip'
+      });
+      $("#myTable_wrapper .custom-left").append(`
+          <a href="./file_preview.php" class="btn btn-warning btn-sm text-white"><i class="ri-printer-line"></i> Cetak Pengujian</a>
+        `);
     });
   </script>
 </body>

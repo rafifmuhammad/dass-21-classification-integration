@@ -40,7 +40,7 @@ if ($endPage - $startPage + 1 < $jumlahLink) {
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="./../../dist/bootstrap-4.0.0-dist/css/bootstrap.css">
+    <link rel="stylesheet" href="./../../dist/bootstrap-4.0.0-dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="./../../dist/css/dashboard-style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
@@ -173,19 +173,13 @@ if ($endPage - $startPage + 1 < $jumlahLink) {
                                 <img class="card-img-top" src="holder.js/100px180/" alt="">
                                 <div class="card-body">
                                     <h4 class="card-title">Tabel Data Training</h4>
-                                    <div class="table-action justify-content-end">
-                                        <form action="">
-                                            <input class="form-control form-control-sm" type="text" placeholder="Cari">
-                                            <button class="btn btn-primary btn-sm"><i class="ri-search-line"></i> Cari Data</button>
-                                        </form>
-                                    </div>
-                                    <table class="table table-hover">
+                                    <table id="myTable" class="table table-striped table-bordered w-100">
                                         <thead>
                                             <tr>
-                                                <th scope="col">No</th>
-                                                <th scope="col">Kode Data</th>
-                                                <th scope="col">Kelas</th>
-                                                <th scope="col">Jenis</th>
+                                                <th class="text-center font-weight-bold text-dark">No</th>
+                                                <th class="text-center font-weight-bold text-dark">Kode Data</th>
+                                                <th class="text-center font-weight-bold text-dark">Kelas</th>
+                                                <th class="text-center font-weight-bold text-dark">Jenis</th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -193,10 +187,10 @@ if ($endPage - $startPage + 1 < $jumlahLink) {
                                             $i = 1;
                                             foreach ($dataTraining as $data) : ?>
                                                 <tr>
-                                                    <th scope="row"><?= $i; ?></th>
-                                                    <td><?= $data['kd_data'] ?></td>
+                                                    <th class="text-center text-dark" scope="row"><?= $i; ?></th>
+                                                    <td class="text-center"><?= $data['kd_data'] ?></td>
                                                     <td><?= $data['Kelas'] ?></td>
-                                                    <td class="<?php echo $dt['Jenis'] != 'Training' ? 'text-success' : 'text-info'; ?>"><?= $data['Jenis'] ?></td>
+                                                    <td class="<?php echo $dt['Jenis'] != 'Training' ? 'text-success' : 'text-info'; ?> text-center"><?= $data['Jenis'] ?></td>
                                                 </tr>
                                             <?php
                                                 $i++;
@@ -242,13 +236,34 @@ if ($endPage - $startPage + 1 < $jumlahLink) {
     </div>
     <!-- Main wrapper end -->
 
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
+    <!-- Bootstrap 4 JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- DataTables BS4 -->
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.5/css/dataTables.bootstrap4.min.css">
+    <script src="https://cdn.datatables.net/1.13.5/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.13.5/js/dataTables.bootstrap4.min.js"></script>
     <script>
         $(document).ready(function() {
             $('.toggle-sidebar-btn').on('click', function() {
                 $('.main-app').toggleClass('sidebar-collapsed');
+            });
+        });
+
+        $(document).ready(function() {
+            $("#myTable").DataTable({
+                paging: false,
+                ordering: true,
+                searching: true,
+                info: true,
+                lengthMenu: [5, 10, 25, 50],
+                pageLength: 5,
+                language: {
+                    search: "",
+                    searchPlaceholder: "Cari Data..."
+                },
+                dom: '<"row mb-3"<"col-sm-6 d-flex align-items-center custom-left"><"col-sm-6 d-flex justify-content-end"f>>rtip'
             });
         });
     </script>

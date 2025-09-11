@@ -71,7 +71,7 @@ if (isset($_POST['split_data'])) {
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="./../../dist/bootstrap-4.0.0-dist/css/bootstrap.css">
+    <link rel="stylesheet" href="./../../dist/bootstrap-4.0.0-dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="./../../dist/css/dashboard-style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
@@ -220,17 +220,6 @@ if (isset($_POST['split_data'])) {
                                     <?php endif; ?>
                                     <h4 class="card-title">Tabel Data</h4>
                                     <div class="table-action">
-                                        <div class="d-flex">
-                                            <a href="./add_data.php" class="btn btn-primary btn-sm mr-2"><i class="ri-add-circle-line"></i> Tambah Data</a>
-                                            <button class="btn btn-success btn-sm mr-2" type="button" class="btn btn-primary" data-toggle="modal" data-target="#importExcel"><i class="ri-import-line"></i> Import Data</button>
-                                            <form action="" method="post">
-                                                <button class="btn btn-info btn-sm" name="split_data"><i class="ri-a-b"></i> Split Data</button>
-                                            </form>
-                                        </div>
-                                        <form action="" method="post">
-                                            <input class="form-control form-control-sm" type="text" placeholder="Cari" name="q">
-                                            <button class="btn btn-primary btn-sm" name="cari"><i class="ri-search-line"></i> Cari Data</button>
-                                        </form>
                                         <!-- Modal Import Excel Start -->
                                         <div class="modal fade" id="importExcel" tabindex="-1" role="dialog" aria-labelledby="importExcelLabel" aria-hidden="true">
                                             <div class="modal-dialog" role="document">
@@ -266,14 +255,18 @@ if (isset($_POST['split_data'])) {
                                         </div>
                                         <!-- Modal Import Excel End -->
                                     </div>
-                                    <table class="table table-hover">
+                                    <table id="myTable" class="table table-striped table-bordered w-100">
                                         <thead>
                                             <tr>
-                                                <th scope="col">No</th>
-                                                <th scope="col">Kode Data</th>
-                                                <th scope="col">Kelas</th>
-                                                <th scope="col">Jenis</th>
-                                                <th scope="col" colspan="3">Aksi</th>
+                                                <th rowspan="2" class="text-center align-middle text-dark font-weight-bold">No</th>
+                                                <th rowspan="2" class="text-center align-middle text-dark font-weight-bold">Kode Data</th>
+                                                <th rowspan="2" class="text-center align-middle text-dark font-weight-bold">Kelas</th>
+                                                <th rowspan="2" class="text-center align-middle text-dark font-weight-bold">Jenis</th>
+                                                <th colspan="3" class="text-center align-middle text-dark font-weight-bold">Aksi</th>
+                                            </tr>
+                                            <tr>
+                                                <td class="text-center font-weight-bold text-dark">Edit</td>
+                                                <td class="text-center font-weight-bold text-dark">Delete</td>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -281,12 +274,12 @@ if (isset($_POST['split_data'])) {
                                             $i = $start + 1;
                                             foreach ($data as $dt) : ?>
                                                 <tr>
-                                                    <th scope="row"><?= $i++; ?></th>
-                                                    <td><?= $dt['kd_data']; ?></td>
+                                                    <th class="text-center" scope="row"><?= $i++; ?></th>
+                                                    <td class="text-center"><?= $dt['kd_data']; ?></td>
                                                     <td><?= $dt['Kelas']; ?></td>
-                                                    <td class="<?php echo $dt['Jenis'] == 'Training' ? 'text-success' : 'text-info'; ?>"><?= $dt['Jenis']; ?></td>
-                                                    <td><a href="./edit_data.php?kd_data=<?= $dt['kd_data']; ?>" class="btn btn-warning btn-sm"><i class="ri-pencil-line"></i></a></td>
-                                                    <td><a href="./delete_data.php?kd_data=<?= $dt['kd_data']; ?>" class="btn btn-danger btn-sm" onclick="return confirm('Hapus data?');"><i class="ri-delete-bin-line"></i></a></td>
+                                                    <td class="<?php echo $dt['Jenis'] == 'Training' ? 'text-success' : 'text-info'; ?> text-center"><?= $dt['Jenis']; ?></td>
+                                                    <td class="text-center"><a href="./edit_data.php?kd_data=<?= $dt['kd_data']; ?>" class="btn btn-warning btn-sm"><i class="ri-pencil-line"></i></a></td>
+                                                    <td class="text-center"><a href="./delete_data.php?kd_data=<?= $dt['kd_data']; ?>" class="btn btn-danger btn-sm" onclick="return confirm('Hapus data?');"><i class="ri-delete-bin-line"></i></a></td>
                                                 </tr>
                                             <?php endforeach; ?>
                                         </tbody>
@@ -331,9 +324,14 @@ if (isset($_POST['split_data'])) {
     <!-- Main wrapper end -->
     </div>
 
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
+    <!-- Bootstrap 4 JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- DataTables BS4 -->
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.5/css/dataTables.bootstrap4.min.css">
+    <script src="https://cdn.datatables.net/1.13.5/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.13.5/js/dataTables.bootstrap4.min.js"></script>
     <script>
         $(document).ready(function() {
             $('.toggle-sidebar-btn').on('click', function() {
@@ -343,6 +341,29 @@ if (isset($_POST['split_data'])) {
         $('.custom-file-input').on('change', function() {
             var fileName = $(this).val().split('\\').pop();
             $(this).next('.custom-file-label').addClass("selected").html(fileName);
+        });
+
+        $(document).ready(function() {
+            $("#myTable").DataTable({
+                paging: false,
+                ordering: true,
+                searching: true,
+                info: true,
+                lengthMenu: [5, 10, 25, 50],
+                pageLength: 5,
+                language: {
+                    search: "",
+                    searchPlaceholder: "Cari Data..."
+                },
+                dom: '<"row mb-3"<"col-sm-6 d-flex align-items-center custom-left"><"col-sm-6 d-flex justify-content-end"f>>rtip'
+            });
+            $("#myTable_wrapper .custom-left").append(`
+                <a href="./add_data.php" class="btn btn-primary btn-sm mr-2"><i class="ri-add-circle-line"></i> Tambah Data</a>
+                <button class="btn btn-success btn-sm mr-2" type="button" class="btn btn-primary" data-toggle="modal" data-target="#importExcel"><i class="ri-import-line"></i> Import Data</button>
+                <form action="" method="post">
+                    <button class="btn btn-info btn-sm" name="split_data"><i class="ri-a-b"></i> Split Data</button>
+                </form>
+            `);
         });
     </script>
 </body>

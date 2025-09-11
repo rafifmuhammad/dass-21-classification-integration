@@ -1,8 +1,8 @@
 <?php
 session_start();
 
-include './db/connect.php';
-include './includes/functions.php';
+include __DIR__ . '/db/connect.php';
+include __DIR__ . '/includes/functions.php';
 
 if (isset($_SESSION['login'])) {
   header("Location: ./pages/dashboard/index.php");
@@ -49,7 +49,7 @@ if (isset($_POST['submit'])) {
     rel="stylesheet" />
   <link
     rel="stylesheet"
-    href="./dist/bootstrap-4.0.0-dist/css/bootstrap.css" />
+    href="./dist/bootstrap-4.0.0-dist/css/bootstrap.min.css" />
   <link rel="stylesheet" href="./dist/css/style.css" />
   <link
     rel="stylesheet"

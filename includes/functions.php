@@ -336,7 +336,7 @@ function getClassCategory($value)
     } else if ($value >= 30 && $value <= 39) {
         $category = 'Sedang';
     } else if ($value >= 40 && $value <= 46) {
-        $category = 'Normal';
+        $category = 'Berat';
     } else {
         $category = 'Sangat Berat';
     }
@@ -423,7 +423,7 @@ function deleteTest($kd_pengujian)
     return mysqli_affected_rows($conn);
 }
 
-// Handle dataset
+// Handle the dataset
 function insertNewData($data)
 {
     global $conn;

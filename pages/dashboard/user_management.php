@@ -36,13 +36,6 @@ $page = isset($_GET['page']) ? (int)$_GET['page'] : 1;
 $start = ($page - 1) * $perPage;
 
 $pagination = queryWithPagination("SELECT * FROM tb_user", 10);
-
-if (isset($_POST['cari'])) {
-  $q = $_POST['q'];
-
-  $pagination = queryWithPagination("SELECT * FROM tb_user WHERE username LIKE '%$q%' OR nama LIKE '%$q%' OR role LIKE '%$q%'", 10);
-}
-
 $users = $pagination['data'];
 $totalPages = $pagination['total_pages'];
 $page = $pagination['current_page'];
@@ -60,7 +53,7 @@ $page = $pagination['current_page'];
     rel="stylesheet" />
   <link
     rel="stylesheet"
-    href="./../../dist/bootstrap-4.0.0-dist/css/bootstrap.css" />
+    href="./../../dist/bootstrap-4.0.0-dist/css/bootstrap.min.css" />
   <link rel="stylesheet" href="./../../dist/css/dashboard-style.css" />
   <link
     rel="stylesheet"
@@ -211,7 +204,6 @@ $page = $pagination['current_page'];
           <section class="data-table">
             <div class="wrapper">
               <div class="card text-left">
-                <img class="card-img-top" src="holder.js/100px180/" alt="" />
                 <div class="card-body">
                   <h4 class="card-title">Tabel Manajemen Pengguna</h4>
                   <!-- Modal start -->
@@ -300,63 +292,43 @@ $page = $pagination['current_page'];
                     </div>
                   </div>
                   <!-- Modal end -->
-                  <div class="table-action">
-                    <button
-                      class="btn btn-primary btn-sm"
-                      data-toggle="modal"
-                      data-target="#addUserModal">
-                      <i class="ri-add-circle-line"></i> Tambah Pengguna
-                    </button>
-                    <form action="" method="post">
-                      <input
-                        class="form-control form-control-sm"
-                        type="text"
-                        placeholder="Cari"
-                        name="q" />
-                      <button class="btn btn-primary btn-sm" name="cari">
-                        <i class="ri-search-line"></i> Cari Pengguna
-                      </button>
-                    </form>
-                  </div>
-                  <table class="table table-hover">
+                  <table id="myTable" class="table table-striped table-bordered w-100">
                     <thead>
                       <tr>
-                        <th scope="col">No</th>
-                        <th scope="col">Kode Pengguna</th>
-                        <th scope="col">Nama Pengguna</th>
-                        <th scope="col">Username</th>
-                        <th scope="col">Tanggal Lahir</th>
-                        <th scope="col">role</th>
-                        <th scope="col" colspan="2">Aksi</th>
+                        <th rowspan="2" class="text-center text-dark align-middle font-weight-bold">No</th>
+                        <th rowspan="2" class="text-center text-dark align-middle font-weight-bold">Kode Pengguna</th>
+                        <th rowspan="2" class="text-center text-dark align-middle font-weight-bold">Nama Pengguna</th>
+                        <th rowspan="2" class="text-center text-dark align-middle font-weight-bold">Username</th>
+                        <th rowspan="2" class="text-center text-dark align-middle font-weight-bold">Tanggal Lahir</th>
+                        <th rowspan="2" class="text-center text-dark align-middle font-weight-bold">role</th>
+                        <th colspan="2" class="text-center text-dark align-middle font-weight-bold">Aksi</th>
+                      </tr>
+                      <tr>
+                        <th class="text-center text-dark font-weight-bold">Edit</th>
+                        <th class="text-center text-dark font-weight-bold">Delete</th>
                       </tr>
                     </thead>
                     <tbody>
-                      <?php if (!empty($users)) : ?>
-                        <?php
-                        $i = 1;
-                        foreach ($users as $user) : ?>
-                          <tr>
-                            <th scope="row"><?= $i; ?></th>
-                            <td><?= $user['kd_user']; ?></td>
-                            <td><?= $user['nama']; ?></td>
-                            <td><?= $user['username']; ?></td>
-                            <td><?= $user['tanggal_lahir']; ?></td>
-                            <td><?= $user['role']; ?></td>
-                            <td>
-                              <a href="./edit_user.php?kd_user=<?= $user['kd_user']; ?>" class="btn btn-warning btn-sm"><i class="ri-pencil-line"></i></a>
-                            </td>
-                            <td>
-                              <a href="./delete_user.php?kd_user=<?= $user['kd_user']; ?>" class="btn btn-danger btn-sm" onclick="return confirm('Yakin ingin menghapus data?');"><i class=" ri-delete-bin-line"></i></a>
-                            </td>
-                          </tr>
-                        <?php
-                          $i++;
-                        endforeach; ?>
-                      <?php else : ?>
+                      <?php
+                      $i = 1;
+                      foreach ($users as $user) : ?>
                         <tr>
-                          <td colspan="8" class="text-center">Tidak ada data</td>
+                          <th scope="row"><?= $i; ?></th>
+                          <td><?= $user['kd_user']; ?></td>
+                          <td><?= $user['nama']; ?></td>
+                          <td><?= $user['username']; ?></td>
+                          <td><?= $user['tanggal_lahir']; ?></td>
+                          <td><?= $user['role']; ?></td>
+                          <td class="text-center">
+                            <a href="./edit_user.php?kd_user=<?= $user['kd_user']; ?>" class="btn btn-warning btn-sm"><i class="ri-pencil-line"></i></a>
+                          </td>
+                          <td class="text-center">
+                            <a href="./delete_user.php?kd_user=<?= $user['kd_user']; ?>" class="btn btn-danger btn-sm" onclick="return confirm('Yakin ingin menghapus data?');"><i class=" ri-delete-bin-line"></i></a>
+                          </td>
                         </tr>
-                      <?php endif; ?>
+                      <?php
+                        $i++;
+                      endforeach; ?>
                     </tbody>
                   </table>
                   <nav>
@@ -395,23 +367,44 @@ $page = $pagination['current_page'];
   </div>
   <!-- Main wrapper end -->
 
-  <script
-    src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
-    integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
-    crossorigin="anonymous"></script>
-  <script
-    src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"
-    integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
-    crossorigin="anonymous"></script>
-  <script
-    src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"
-    integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
-    crossorigin="anonymous"></script>
+  <!-- jQuery -->
+  <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
+  <!-- Bootstrap 4 JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+  <!-- DataTables BS4 -->
+  <link rel="stylesheet" href="https://cdn.datatables.net/1.13.5/css/dataTables.bootstrap4.min.css">
+  <script src="https://cdn.datatables.net/1.13.5/js/jquery.dataTables.min.js"></script>
+  <script src="https://cdn.datatables.net/1.13.5/js/dataTables.bootstrap4.min.js"></script>
   <script>
     $(document).ready(function() {
       $(".toggle-sidebar-btn").on("click", function() {
         $(".main-app").toggleClass("sidebar-collapsed");
       });
+    });
+
+    $(document).ready(function() {
+      $("#myTable").DataTable({
+        paging: false,
+        ordering: true,
+        searching: true,
+        info: true,
+        lengthMenu: [5, 10, 25, 50],
+        pageLength: 5,
+        language: {
+          search: "",
+          searchPlaceholder: "Cari Pengguna..."
+        },
+        dom: '<"row mb-3"<"col-sm-6 d-flex align-items-center custom-left"><"col-sm-6 d-flex justify-content-end"f>>rtip'
+      });
+      $("#myTable_wrapper .custom-left").append(`
+          <button
+            class="btn btn-primary btn-sm"
+            data-toggle="modal"
+            data-target="#addUserModal"
+          >
+            <i class="ri-add-circle-line"></i> Tambah Pengguna
+          </button>
+        `);
     });
   </script>
 </body>
