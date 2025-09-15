@@ -6,6 +6,12 @@ if (!isset($_SESSION['login'])) {
   exit;
 }
 
+$showLoader = false;
+if (isset($_SESSION['just_logged_in']) && $_SESSION['just_logged_in']) {
+  $showLoader = true;
+  unset($_SESSION['just_logged_in']);
+}
+
 include './../../includes/functions.php';
 
 $jumlahUser = query("SELECT count(*) as jumlah_user FROM tb_user");
@@ -39,6 +45,11 @@ $jumlahPengujian = query("SELECT count(*) as jumlah_data FROM tb_pengujian");
 </head>
 
 <body>
+  <?php if ($showLoader) : ?>
+    <div id="page-loader">
+      <div class="loader"></div>
+    </div>
+  <?php endif; ?>
   <div class="main-app">
     <!-- Sidebar start -->
     <section class="sidebar">
@@ -248,6 +259,11 @@ $jumlahPengujian = query("SELECT count(*) as jumlah_data FROM tb_pengujian");
       $(".toggle-sidebar-btn").on("click", function() {
         $(".main-app").toggleClass("sidebar-collapsed");
       });
+    });
+    document.addEventListener("DOMContentLoaded", function() {
+      const loader = document.getElementById("page-loader");
+      // kasih sedikit delay biar animasi kelihatan
+      setTimeout(() => loader.classList.add("hidden"), 3000);
     });
   </script>
 </body>

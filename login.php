@@ -28,6 +28,7 @@ if (isset($_POST['submit'])) {
       $_SESSION['kd_user'] = $row['kd_user'];
       $_SESSION['name'] = $row['nama'];
       $_SESSION['role'] = $row['role'];
+      $_SESSION['just_logged_in'] = true;
 
       header("Location: ./pages/dashboard/index.php");
       exit;
