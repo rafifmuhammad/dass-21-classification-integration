@@ -73,7 +73,7 @@ $users = query("SELECT * FROM tb_user WHERE role = 'User'");
           <ul>
             <li class="active">
               <i class="ri-pages-line"></i>
-              <a href="./../pengujian/index.php">Ikuti Tes</a>
+              <a href="<?php echo $_SESSION['role'] == 'Admin' ? './select_user.php' : './../pengujian/index.php'; ?>">Klasifikasi</a>
             </li>
             <li>
               <i
@@ -171,7 +171,7 @@ $users = query("SELECT * FROM tb_user WHERE role = 'User'");
                 <a href="./index.php">Dashboard</a>
               </li>
               <li class="breadcrumb-item">
-                <a href="./index.php">Ikuti Tes</a>
+                <a href="./index.php">Klasifikasi</a>
               </li>
               <li class="breadcrumb-item active" aria-current="page">
                 Pilih User Testing
@@ -186,13 +186,13 @@ $users = query("SELECT * FROM tb_user WHERE role = 'User'");
               <h5 class="mb-4">Pilih User Testing</h5>
               <form action="./../pengujian/index.php" method="get">
                 <div class="form-group">
-                  <select class="form-control w-50" id="user_testing" name="user_testing">
+                  <select class="form-control w-50 form-mobile" id="user_testing" name="user_testing">
                     <?php foreach ($users as $user) : ?>
                       <option value="<?= $user['username']; ?>"><?= $user['nama']; ?></option>
                     <?php endforeach; ?>
                   </select>
                 </div>
-                <button type="submit" class="btn btn-success btn-sm" name="select_user">
+                <button type="submit" class="btn btn-success btn-sm small-button" name="select_user">
                   Pilih
                 </button>
               </form>

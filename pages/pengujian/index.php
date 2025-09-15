@@ -58,7 +58,7 @@ if ($_SESSION['role'] != 'Admin') {
   <link
     href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css"
     rel="stylesheet" />
-  <title>Ambil Tes | DASS-21</title>
+  <title>Klasifikasi | DASS-21</title>
 </head>
 
 <body>
@@ -97,11 +97,7 @@ if ($_SESSION['role'] != 'Admin') {
         <div
           class="alert alert-light alert-border-left-primary d-flex"
           role="alert">
-          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Rem
-          incidunt id voluptas dolorem tenetur, eos dignissimos culpa
-          temporibus magnam aut aliquam exercitationem soluta, fugit error?
-          Accusamus neque harum alias! Modi exercitationem non doloremque
-          dolorum tenetur sit et sint soluta sed?
+          Instrumen DASS-21 ini dapat membantu Anda melakukan evaluasi mandiri terhadap kondisi kesehatan mental secara umum. Silakan mengisi setiap pertanyaan dengan jujur agar hasil lebih mencerminkan keadaan Anda.
         </div>
         <!-- Alert end -->
 

@@ -17,7 +17,7 @@ if ($_SESSION['role'] == 'Admin') {
 } else {
   $kd_user = $_SESSION['kd_user'];
 
-  $pagination = queryWithPagination("SELECT * FROM tb_pengujian, tb_user WHERE tb_pengujian.kd_user = tb_user.kd_user AND kd_user = '$kd_user'", 10);
+  $pagination = queryWithPagination("SELECT * FROM tb_pengujian, tb_user WHERE tb_pengujian.kd_user = tb_user.kd_user AND tb_pengujian.kd_user = '$kd_user'", 10);
 }
 
 $testing = $pagination['data'];
@@ -82,7 +82,7 @@ $page = $pagination['current_page'];
           <ul>
             <li>
               <i class="ri-pages-line"></i>
-              <a href="<?php echo $_SESSION['role'] == 'Admin' ? './select_user.php' : './../pengujian/index.php'; ?>">Ikuti Tes</a>
+              <a href="<?php echo $_SESSION['role'] == 'Admin' ? './select_user.php' : './../pengujian/index.php'; ?>">Klasifikasi</a>
             </li>
             <li class="active">
               <i
@@ -294,7 +294,7 @@ $page = $pagination['current_page'];
         dom: '<"row mb-3"<"col-sm-6 d-flex align-items-center custom-left"><"col-sm-6 d-flex justify-content-end"f>>rtip'
       });
       $("#myTable_wrapper .custom-left").append(`
-          <a href="./file_preview.php" class="btn btn-warning btn-sm text-white"><i class="ri-printer-line"></i> Cetak Pengujian</a>
+          <a href="./file_preview.php" class="btn btn-warning btn-sm text-white small-button"><i class="ri-printer-line"></i> Cetak Pengujian</a>
         `);
     });
   </script>

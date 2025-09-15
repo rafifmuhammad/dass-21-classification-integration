@@ -460,6 +460,16 @@ table.table td {
    Mobile (≤ 480px)
    ===================== */
 @media (max-width: 480px) {
+    .small-button {
+        font-size: 10px;
+    }
+    .gap {
+        margin-bottom: 8px;
+    }
+    .form-mobile {
+        width: 320px !important;
+        font-size: 10px;
+    }
     .main-wrapper {
         margin-left: 180px;
         flex: 1;
@@ -472,15 +482,15 @@ table.table td {
     /* main app */
     .main-app {
         display: flex;
-        min-height: 100vh;     /* isi penuh layar */
-        overflow: hidden;      /* cegah scroll container */
+        min-height: 100vh;    
+        margin-right: 4px;
     }
 
     /* sidebar */
     .sidebar {
         position: fixed;
         min-width: 160px;
-        height: 100vh;
+        height: 100%;
         background-color: #f7f9fc;
         border-right: 1px solid #E0EAEB;
         z-index: 1000;
@@ -729,5 +739,38 @@ table.table td {
 
     .main-content .box-main-content .box:nth-child(4) {
         background: linear-gradient(to right, #bf0603, #ff6b6b);
+    }
+    /* Breadcrumb */
+    .breadcrumb-item {
+        font-size: 10px;
+    }
+    /* main-card */
+    .card-title {
+        font-size: 10px;
+    }
+    /* modal */
+    .modal {
+        max-width: 320px;
+        position: relative;
+    }
+    .modal-title {
+        font-size: 10px;
+    }
+    .modal-body .form-group {
+        font-size: 10px;
+    }
+    .modal-body .form-control {
+        font-size: 10px;
+        max-width: 240px;
+    }
+    /* table */
+    th, td {
+        font-size: 10px !important;
+    }
+    .card-body h4{
+        font-size: 10px;
+    }
+    .card .card-body .table-card-wrapper h4 {
+        font-size: 10px !important;
     }
 }

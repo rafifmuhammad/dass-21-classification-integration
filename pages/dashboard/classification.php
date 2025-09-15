@@ -162,7 +162,7 @@ $info = [
             <ul>
               <li>
                 <i class="ri-pages-line"></i>
-                <a href="<?php echo $_SESSION['role'] == 'Admin' ? './select_user.php' : './../pengujian/index.php'; ?>">Ikuti Tes</a>
+                <a href="<?php echo $_SESSION['role'] == 'Admin' ? './select_user.php' : './../pengujian/index.php'; ?>">Klasifikasi</a>
               </li>
               <li>
                 <i

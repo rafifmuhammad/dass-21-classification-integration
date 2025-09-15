@@ -108,7 +108,7 @@ if (isset($_POST['split_data'])) {
                     <ul>
                         <li>
                             <i class="ri-pages-line"></i>
-                            <a href="<?php echo $_SESSION['role'] == 'Admin' ? './select_user.php' : './../pengujian/index.php'; ?>">Ikuti Tes</a>
+                            <a href="<?php echo $_SESSION['role'] == 'Admin' ? './select_user.php' : './../pengujian/index.php'; ?>">Klasifikasi</a>
                         </li>
                         <li>
                             <i
@@ -358,10 +358,10 @@ if (isset($_POST['split_data'])) {
                 dom: '<"row mb-3"<"col-sm-6 d-flex align-items-center custom-left"><"col-sm-6 d-flex justify-content-end"f>>rtip'
             });
             $("#myTable_wrapper .custom-left").append(`
-                <a href="./add_data.php" class="btn btn-primary btn-sm mr-2"><i class="ri-add-circle-line"></i> Tambah Data</a>
-                <button class="btn btn-success btn-sm mr-2" type="button" class="btn btn-primary" data-toggle="modal" data-target="#importExcel"><i class="ri-import-line"></i> Import Data</button>
+                <a href="./add_data.php" class="btn btn-primary btn-sm mr-2 small-button gap"><i class="ri-add-circle-line"></i> Tambah Data</a>
+                <button class="btn btn-success btn-sm mr-2 small-button gap" type="button" class="btn btn-primary" data-toggle="modal" data-target="#importExcel"><i class="ri-import-line"></i> Import Data</button>
                 <form action="" method="post">
-                    <button class="btn btn-info btn-sm" name="split_data"><i class="ri-a-b"></i> Split Data</button>
+                    <button class="btn btn-info btn-sm small-button gap" name="split_data"><i class="ri-a-b"></i> Split Data</button>
                 </form>
             `);
         });

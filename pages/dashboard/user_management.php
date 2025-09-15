@@ -98,7 +98,7 @@ $page = $pagination['current_page'];
           <ul>
             <li>
               <i class="ri-pages-line"></i>
-              <a href="<?php echo $_SESSION['role'] == 'Admin' ? './select_user.php' : './../pengujian/index.php'; ?>">Ikuti Tes</a>
+              <a href="<?php echo $_SESSION['role'] == 'Admin' ? './select_user.php' : './../pengujian/index.php'; ?>">Klasifikasi</a>
             </li>
             <li>
               <i
@@ -279,11 +279,11 @@ $page = $pagination['current_page'];
                           <div class="modal-footer">
                             <button
                               type="button"
-                              class="btn btn-secondary"
+                              class="btn btn-secondary btn-sm small-button"
                               data-dismiss="modal">
                               Close
                             </button>
-                            <button type="submit" class="btn btn-primary" name="submit">
+                            <button type="submit" class="btn btn-primary btn-sm small-button" name="submit">
                               Save changes
                             </button>
                           </div>
@@ -398,7 +398,7 @@ $page = $pagination['current_page'];
       });
       $("#myTable_wrapper .custom-left").append(`
           <button
-            class="btn btn-primary btn-sm"
+            class="btn btn-primary btn-sm small-button"
             data-toggle="modal"
             data-target="#addUserModal"
           >

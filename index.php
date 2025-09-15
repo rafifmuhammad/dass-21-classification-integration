@@ -55,7 +55,7 @@ if (isset($_SESSION['login'])) {
                     <img src="./img/ilustration-mental.png" alt="ilustration-1">
                 </div>
             </div>
-            <button class="btn btn-primary btn-sm" onclick="location.href='./register.php'" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="1000">Coba Sekarang</button>
+            <button class="btn btn-primary btn-sm button-center small-button" onclick="location.href='./register.php'" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="1000">Coba Sekarang</button>
         </div>
     </section>
     <!-- Hero end -->
