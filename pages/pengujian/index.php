@@ -152,7 +152,7 @@ if ($_SESSION['role'] != 'Admin') {
                           Lumayan Sering
                         </th>
                         <th scope="col" class="text-white font-weight-normal">
-                          Sering Sekali
+                          Sangat Sering
                         </th>
                       </tr>
                     </thead>
@@ -203,8 +203,8 @@ if ($_SESSION['role'] != 'Admin') {
                               type="radio"
                               name="D1"
                               id="inlineRadio4"
-                              value="Sering Sekali" />
-                            <label class="form-check-label" for="inlineRadio4">Sering Sekali</label>
+                              value="Sangat Sering" />
+                            <label class="form-check-label" for="inlineRadio4">Sangat Sering</label>
                           </div>
                         </td>
                       </tr>
@@ -254,8 +254,8 @@ if ($_SESSION['role'] != 'Admin') {
                               type="radio"
                               name="D2"
                               id="inlineRadio8"
-                              value="Sering Sekali" />
-                            <label class="form-check-label" for="inlineRadio8">Sering Sekali</label>
+                              value="Sangat Sering" />
+                            <label class="form-check-label" for="inlineRadio8">Sangat Sering</label>
                           </div>
                         </td>
                       </tr>
@@ -309,10 +309,10 @@ if ($_SESSION['role'] != 'Admin') {
                               type="radio"
                               name="D3"
                               id="inlineRadio12"
-                              value="Sering Sekali" />
+                              value="Sangat Sering" />
                             <label
                               class="form-check-label"
-                              for="inlineRadio12">Sering Sekali</label>
+                              for="inlineRadio12">Sangat Sering</label>
                           </div>
                         </td>
                       </tr>
@@ -365,10 +365,10 @@ if ($_SESSION['role'] != 'Admin') {
                               type="radio"
                               name="D4"
                               id="inlineRadio16"
-                              value="Sering Sekali" />
+                              value="Sangat Sering" />
                             <label
                               class="form-check-label"
-                              for="inlineRadio16">Sering Sekali</label>
+                              for="inlineRadio16">Sangat Sering</label>
                           </div>
                         </td>
                       </tr>
@@ -421,10 +421,10 @@ if ($_SESSION['role'] != 'Admin') {
                               type="radio"
                               name="D5"
                               id="inlineRadio20"
-                              value="Sering Sekali" />
+                              value="Sangat Sering" />
                             <label
                               class="form-check-label"
-                              for="inlineRadio20">Sering Sekali</label>
+                              for="inlineRadio20">Sangat Sering</label>
                           </div>
                         </td>
                       </tr>
@@ -477,10 +477,10 @@ if ($_SESSION['role'] != 'Admin') {
                               type="radio"
                               name="D6"
                               id="inlineRadio24"
-                              value="Sering Sekali" />
+                              value="Sangat Sering" />
                             <label
                               class="form-check-label"
-                              for="inlineRadio24">Sering Sekali</label>
+                              for="inlineRadio24">Sangat Sering</label>
                           </div>
                         </td>
                       </tr>
@@ -533,10 +533,10 @@ if ($_SESSION['role'] != 'Admin') {
                               type="radio"
                               name="D7"
                               id="inlineRadio28"
-                              value="Sering Sekali" />
+                              value="Sangat Sering" />
                             <label
                               class="form-check-label"
-                              for="inlineRadio28">Sering Sekali</label>
+                              for="inlineRadio28">Sangat Sering</label>
                           </div>
                         </td>
                       </tr>
@@ -581,7 +581,7 @@ if ($_SESSION['role'] != 'Admin') {
                           Lumayan Sering
                         </th>
                         <th scope="col" class="text-white font-weight-normal">
-                          Sering Sekali
+                          Sangat Sering
                         </th>
                       </tr>
                     </thead>
@@ -635,10 +635,10 @@ if ($_SESSION['role'] != 'Admin') {
                               type="radio"
                               name="A1"
                               id="inlineRadio32"
-                              value="Sering Sekali" />
+                              value="Sangat Sering" />
                             <label
                               class="form-check-label"
-                              for="inlineRadio32">Sering Sekali</label>
+                              for="inlineRadio32">Sangat Sering</label>
                           </div>
                         </td>
                       </tr>
@@ -695,10 +695,10 @@ if ($_SESSION['role'] != 'Admin') {
                               type="radio"
                               name="A2"
                               id="inlineRadio36"
-                              value="Sering Sekali" />
+                              value="Sangat Sering" />
                             <label
                               class="form-check-label"
-                              for="inlineRadio36">Sering Sekali</label>
+                              for="inlineRadio36">Sangat Sering</label>
                           </div>
                         </td>
                       </tr>
@@ -751,10 +751,10 @@ if ($_SESSION['role'] != 'Admin') {
                               type="radio"
                               name="A3"
                               id="inlineRadio40"
-                              value="Sering Sekali" />
+                              value="Sangat Sering" />
                             <label
                               class="form-check-label"
-                              for="inlineRadio40">Sering Sekali</label>
+                              for="inlineRadio40">Sangat Sering</label>
                           </div>
                         </td>
                       </tr>
@@ -811,10 +811,10 @@ if ($_SESSION['role'] != 'Admin') {
                               type="radio"
                               name="A4"
                               id="inlineRadio44"
-                              value="Sering Sekali" />
+                              value="Sangat Sering" />
                             <label
                               class="form-check-label"
-                              for="inlineRadio44">Sering Sekali</label>
+                              for="inlineRadio44">Sangat Sering</label>
                           </div>
                         </td>
                       </tr>
@@ -867,10 +867,10 @@ if ($_SESSION['role'] != 'Admin') {
                               type="radio"
                               name="A5"
                               id="inlineRadio48"
-                              value="Sering Sekali" />
+                              value="Sangat Sering" />
                             <label
                               class="form-check-label"
-                              for="inlineRadio48">Sering Sekali</label>
+                              for="inlineRadio48">Sangat Sering</label>
                           </div>
                         </td>
                       </tr>
@@ -927,10 +927,10 @@ if ($_SESSION['role'] != 'Admin') {
                               type="radio"
                               name="A6"
                               id="inlineRadio52"
-                              value="Sering Sekali" />
+                              value="Sangat Sering" />
                             <label
                               class="form-check-label"
-                              for="inlineRadio52">Sering Sekali</label>
+                              for="inlineRadio52">Sangat Sering</label>
                           </div>
                         </td>
                       </tr>
@@ -983,10 +983,10 @@ if ($_SESSION['role'] != 'Admin') {
                               type="radio"
                               name="A7"
                               id="inlineRadio56"
-                              value="Sering Sekali" />
+                              value="Sangat Sering" />
                             <label
                               class="form-check-label"
-                              for="inlineRadio56">Sering Sekali</label>
+                              for="inlineRadio56">Sangat Sering</label>
                           </div>
                         </td>
                       </tr>
@@ -1031,7 +1031,7 @@ if ($_SESSION['role'] != 'Admin') {
                           Lumayan Sering
                         </th>
                         <th scope="col" class="text-white font-weight-normal">
-                          Sering Sekali
+                          Sangat Sering
                         </th>
                       </tr>
                     </thead>
@@ -1085,10 +1085,10 @@ if ($_SESSION['role'] != 'Admin') {
                               type="radio"
                               name="S1"
                               id="inlineRadio60"
-                              value="Sering Sekali" />
+                              value="Sangat Sering" />
                             <label
                               class="form-check-label"
-                              for="inlineRadio60">Sering Sekali</label>
+                              for="inlineRadio60">Sangat Sering</label>
                           </div>
                         </td>
                       </tr>
@@ -1144,10 +1144,10 @@ if ($_SESSION['role'] != 'Admin') {
                               type="radio"
                               name="S2"
                               id="inlineRadio64"
-                              value="Sering Sekali" />
+                              value="Sangat Sering" />
                             <label
                               class="form-check-label"
-                              for="inlineRadio64">Sering Sekali</label>
+                              for="inlineRadio64">Sangat Sering</label>
                           </div>
                         </td>
                       </tr>
@@ -1203,10 +1203,10 @@ if ($_SESSION['role'] != 'Admin') {
                               type="radio"
                               name="S3"
                               id="inlineRadio68"
-                              value="Sering Sekali" />
+                              value="Sangat Sering" />
                             <label
                               class="form-check-label"
-                              for="inlineRadio68">Sering Sekali</label>
+                              for="inlineRadio68">Sangat Sering</label>
                           </div>
                         </td>
                       </tr>
@@ -1259,10 +1259,10 @@ if ($_SESSION['role'] != 'Admin') {
                               type="radio"
                               name="S4"
                               id="inlineRadio72"
-                              value="Sering Sekali" />
+                              value="Sangat Sering" />
                             <label
                               class="form-check-label"
-                              for="inlineRadio72">Sering Sekali</label>
+                              for="inlineRadio72">Sangat Sering</label>
                           </div>
                         </td>
                       </tr>
@@ -1315,10 +1315,10 @@ if ($_SESSION['role'] != 'Admin') {
                               type="radio"
                               name="S5"
                               id="inlineRadio76"
-                              value="Sering Sekali" />
+                              value="Sangat Sering" />
                             <label
                               class="form-check-label"
-                              for="inlineRadio76">Sering Sekali</label>
+                              for="inlineRadio76">Sangat Sering</label>
                           </div>
                         </td>
                       </tr>
@@ -1375,10 +1375,10 @@ if ($_SESSION['role'] != 'Admin') {
                               type="radio"
                               name="S6"
                               id="inlineRadio80"
-                              value="Sering Sekali" />
+                              value="Sangat Sering" />
                             <label
                               class="form-check-label"
-                              for="inlineRadio80">Sering Sekali</label>
+                              for="inlineRadio80">Sangat Sering</label>
                           </div>
                         </td>
                       </tr>
@@ -1431,10 +1431,10 @@ if ($_SESSION['role'] != 'Admin') {
                               type="radio"
                               name="S7"
                               id="inlineRadio84"
-                              value="Sering Sekali" />
+                              value="Sangat Sering" />
                             <label
                               class="form-check-label"
-                              for="inlineRadio84">Sering Sekali</label>
+                              for="inlineRadio84">Sangat Sering</label>
                           </div>
                         </td>
                       </tr>

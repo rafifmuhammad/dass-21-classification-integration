@@ -92,12 +92,12 @@ if (isset($_POST['split_data'])) {
                     <h4>General</h4>
                     <ul>
                         <li>
-                            <i class="ri-dashboard-line" onclick="location.href='./index.html'"></i>
+                            <i class="ri-dashboard-line" onclick="location.href='./index.php'"></i>
                             <a href="./index.php">Dashboard</a>
                         </li>
                         <?php if ($_SESSION['role'] == 'Admin') : ?>
                             <li>
-                                <i class="ri-group-line" onclick="location.href='./user_management.html'"></i>
+                                <i class="ri-group-line" onclick="location.href='./user_management.php'"></i>
                                 <a href="./user_management.php">Manajemen Pengguna</a>
                             </li>
                         <?php endif; ?>
@@ -127,7 +127,7 @@ if (isset($_POST['split_data'])) {
                             </li>
                             <ul class="collapse pl-0 ml-0" id="submenuDataset">
                                 <li>
-                                    <i class="ri-database-2-line" onclick="location.href='./data.html'"></i>
+                                    <i class="ri-database-2-line" onclick="location.href='./data.php'"></i>
                                     <a href="./data.php">Data</a>
                                 </li>
                                 <li>
@@ -259,7 +259,9 @@ if (isset($_POST['split_data'])) {
                                         <thead>
                                             <tr>
                                                 <th rowspan="2" class="text-center align-middle text-dark font-weight-bold">No</th>
-                                                <th rowspan="2" class="text-center align-middle text-dark font-weight-bold">Kode Data</th>
+                                                <th rowspan="2" class="text-center align-middle text-dark font-weight-bold">P1 (Depresi)</th>
+                                                <th rowspan="2" class="text-center align-middle text-dark font-weight-bold">P2 (Kecemasan)</th>
+                                                <th rowspan="2" class="text-center align-middle text-dark font-weight-bold">P3 (Stres)</th>
                                                 <th rowspan="2" class="text-center align-middle text-dark font-weight-bold">Kelas</th>
                                                 <th rowspan="2" class="text-center align-middle text-dark font-weight-bold">Jenis</th>
                                                 <th colspan="3" class="text-center align-middle text-dark font-weight-bold">Aksi</th>
@@ -275,8 +277,10 @@ if (isset($_POST['split_data'])) {
                                             foreach ($data as $dt) : ?>
                                                 <tr>
                                                     <th class="text-center" scope="row"><?= $i++; ?></th>
-                                                    <td class="text-center"><?= $dt['kd_data']; ?></td>
-                                                    <td><?= $dt['Kelas']; ?></td>
+                                                    <td class="text-center"><?= $dt['P1']; ?></td>
+                                                    <td class="text-center"><?= $dt['P2']; ?></td>
+                                                    <td class="text-center"><?= $dt['P3']; ?></td>
+                                                    <td class="text-center"><?= $dt['Kelas']; ?></td>
                                                     <td class="<?php echo $dt['Jenis'] == 'Training' ? 'text-success' : 'text-info'; ?> text-center"><?= $dt['Jenis']; ?></td>
                                                     <td class="text-center"><a href="./edit_data.php?kd_data=<?= $dt['kd_data']; ?>" class="btn btn-warning btn-sm"><i class="ri-pencil-line"></i></a></td>
                                                     <td class="text-center"><a href="./delete_data.php?kd_data=<?= $dt['kd_data']; ?>" class="btn btn-danger btn-sm" onclick="return confirm('Hapus data?');"><i class="ri-delete-bin-line"></i></a></td>
@@ -340,7 +344,7 @@ if (isset($_POST['split_data'])) {
         });
         $('.custom-file-input').on('change', function() {
             var fileName = $(this).val().split('\\').pop();
-            $(this).next('.custom-file-label').addClass("selected").html(fileName);
+            $(this).next('.custom-file-label').addClass("selected").php(fileName);
         });
 
         $(document).ready(function() {

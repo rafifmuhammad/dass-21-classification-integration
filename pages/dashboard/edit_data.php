@@ -70,15 +70,15 @@ if (isset($_POST['submit'])) {
             <li>
               <i
                 class="ri-dashboard-line"
-                onclick="location.href='./index.html'"></i>
+                onclick="location.href='./index.php'"></i>
               <a href="./index.php">Dashboard</a>
             </li>
             <?php if ($_SESSION['role'] == 'Admin') : ?>
               <li>
                 <i
                   class="ri-group-line"
-                  onclick="location.href='./user_management.html'"></i>
-                <a href="./user_management.html">Manajemen Pengguna</a>
+                  onclick="location.href='./user_management.php'"></i>
+                <a href="./user_management.php">Manajemen Pengguna</a>
               </li>
             <?php endif; ?>
           </ul>
@@ -116,8 +116,8 @@ if (isset($_POST['submit'])) {
                 <li>
                   <i
                     class="ri-database-2-line"
-                    onclick="location.href='./data.html'"></i>
-                  <a href="./data.html">Data</a>
+                    onclick="location.href='./data.php'"></i>
+                  <a href="./data.php">Data</a>
                 </li>
                 <li>
                   <i class="ri-flask-line"></i>
@@ -125,7 +125,7 @@ if (isset($_POST['submit'])) {
                 </li>
                 <li>
                   <i class="ri-data-tube-line"></i>
-                  <a href="./testing.html">Testing</a>
+                  <a href="./testing.php">Testing</a>
                 </li>
               </ul>
               <!-- Dropdown menu end -->
@@ -133,7 +133,7 @@ if (isset($_POST['submit'])) {
             <?php if ($_SESSION['role'] == 'Admin') : ?>
               <li>
                 <i class="ri-infinity-fill"></i>
-                <a href="./probability.html">Probabilitas</a>
+                <a href="./probability.php">Probabilitas</a>
               </li>
               <li>
                 <i class="ri-formula"></i>
@@ -186,7 +186,7 @@ if (isset($_POST['submit'])) {
                 <a href="./index.php">Dashboard</a>
               </li>
               <li class="breadcrumb-item">
-                <a href="data.html">Data</a>
+                <a href="data.php">Data</a>
               </li>
               <li class="breadcrumb-item active" aria-current="page">
                 Ubah Data
@@ -258,7 +258,7 @@ if (isset($_POST['submit'])) {
                             <th
                               scope="col"
                               class="text-white font-weight-normal">
-                              Sering Sekali
+                              Sangat Sering
                             </th>
                           </tr>
                         </thead>
@@ -318,11 +318,11 @@ if (isset($_POST['submit'])) {
                                   type="radio"
                                   name="D1"
                                   id="inlineRadio4"
-                                  value="Sering Sekali"
-                                  <?php echo $data[0]['D1'] == 'Sering Sekali' ? 'checked' : ''; ?> />
+                                  value="Sangat Sering"
+                                  <?php echo $data[0]['D1'] == 'Sangat Sering' ? 'checked' : ''; ?> />
                                 <label
                                   class="form-check-label"
-                                  for="inlineRadio4">Sering Sekali</label>
+                                  for="inlineRadio4">Sangat Sering</label>
                               </div>
                             </td>
                           </tr>
@@ -381,11 +381,11 @@ if (isset($_POST['submit'])) {
                                   type="radio"
                                   name="D2"
                                   id="inlineRadio8"
-                                  value="Sering Sekali"
-                                  <?php echo $data[0]['D2'] == 'Sering Sekali' ? 'checked' : ''; ?> />
+                                  value="Sangat Sering"
+                                  <?php echo $data[0]['D2'] == 'Sangat Sering' ? 'checked' : ''; ?> />
                                 <label
                                   class="form-check-label"
-                                  for="inlineRadio8">Sering Sekali</label>
+                                  for="inlineRadio8">Sangat Sering</label>
                               </div>
                             </td>
                           </tr>
@@ -444,11 +444,11 @@ if (isset($_POST['submit'])) {
                                   type="radio"
                                   name="D3"
                                   id="inlineRadio12"
-                                  value="Sering Sekali"
-                                  <?php echo $data[0]['D3'] == 'Sering Sekali' ? 'checked' : ''; ?> />
+                                  value="Sangat Sering"
+                                  <?php echo $data[0]['D3'] == 'Sangat Sering' ? 'checked' : ''; ?> />
                                 <label
                                   class="form-check-label"
-                                  for="inlineRadio12">Sering Sekali</label>
+                                  for="inlineRadio12">Sangat Sering</label>
                               </div>
                             </td>
                           </tr>
@@ -504,11 +504,11 @@ if (isset($_POST['submit'])) {
                                   type="radio"
                                   name="D4"
                                   id="inlineRadio16"
-                                  value="Sering Sekali"
-                                  <?php echo $data[0]['D4'] == 'Sering Sekali' ? 'checked' : ''; ?> />
+                                  value="Sangat Sering"
+                                  <?php echo $data[0]['D4'] == 'Sangat Sering' ? 'checked' : ''; ?> />
                                 <label
                                   class="form-check-label"
-                                  for="inlineRadio16">Sering Sekali</label>
+                                  for="inlineRadio16">Sangat Sering</label>
                               </div>
                             </td>
                           </tr>
@@ -566,11 +566,11 @@ if (isset($_POST['submit'])) {
                                   type="radio"
                                   name="D5"
                                   id="inlineRadio20"
-                                  value="Sering Sekali"
-                                  <?php echo $data[0]['D5'] == 'Sering Sekali' ? 'checked' : ''; ?> />
+                                  value="Sangat Sering"
+                                  <?php echo $data[0]['D5'] == 'Sangat Sering' ? 'checked' : ''; ?> />
                                 <label
                                   class="form-check-label"
-                                  for="inlineRadio20">Sering Sekali</label>
+                                  for="inlineRadio20">Sangat Sering</label>
                               </div>
                             </td>
                           </tr>
@@ -626,11 +626,11 @@ if (isset($_POST['submit'])) {
                                   type="radio"
                                   name="D6"
                                   id="inlineRadio24"
-                                  value="Sering Sekali"
-                                  <?php echo $data[0]['D6'] == 'Sering Sekali' ? 'checked' : ''; ?> />
+                                  value="Sangat Sering"
+                                  <?php echo $data[0]['D6'] == 'Sangat Sering' ? 'checked' : ''; ?> />
                                 <label
                                   class="form-check-label"
-                                  for="inlineRadio24">Sering Sekali</label>
+                                  for="inlineRadio24">Sangat Sering</label>
                               </div>
                             </td>
                           </tr>
@@ -686,11 +686,11 @@ if (isset($_POST['submit'])) {
                                   type="radio"
                                   name="D7"
                                   id="inlineRadio28"
-                                  value="Sering Sekali"
-                                  <?php echo $data[0]['D7'] == 'Sering Sekali' ? 'checked' : ''; ?> />
+                                  value="Sangat Sering"
+                                  <?php echo $data[0]['D7'] == 'Sangat Sering' ? 'checked' : ''; ?> />
                                 <label
                                   class="form-check-label"
-                                  for="inlineRadio28">Sering Sekali</label>
+                                  for="inlineRadio28">Sangat Sering</label>
                               </div>
                             </td>
                           </tr>
@@ -745,7 +745,7 @@ if (isset($_POST['submit'])) {
                             <th
                               scope="col"
                               class="text-white font-weight-normal">
-                              Sering Sekali
+                              Sangat Sering
                             </th>
                           </tr>
                         </thead>
@@ -802,11 +802,11 @@ if (isset($_POST['submit'])) {
                                   type="radio"
                                   name="A1"
                                   id="inlineRadio32"
-                                  value="Sering Sekali"
-                                  <?php echo $data[0]['A1'] == 'Sering Sekali' ? 'checked' : ''; ?> />
+                                  value="Sangat Sering"
+                                  <?php echo $data[0]['A1'] == 'Sangat Sering' ? 'checked' : ''; ?> />
                                 <label
                                   class="form-check-label"
-                                  for="inlineRadio32">Sering Sekali</label>
+                                  for="inlineRadio32">Sangat Sering</label>
                               </div>
                             </td>
                           </tr>
@@ -867,11 +867,11 @@ if (isset($_POST['submit'])) {
                                   type="radio"
                                   name="A2"
                                   id="inlineRadio36"
-                                  value="Sering Sekali"
-                                  <?php echo $data[0]['A2'] == 'Sering Sekali' ? 'checked' : ''; ?> />
+                                  value="Sangat Sering"
+                                  <?php echo $data[0]['A2'] == 'Sangat Sering' ? 'checked' : ''; ?> />
                                 <label
                                   class="form-check-label"
-                                  for="inlineRadio36">Sering Sekali</label>
+                                  for="inlineRadio36">Sangat Sering</label>
                               </div>
                             </td>
                           </tr>
@@ -929,11 +929,11 @@ if (isset($_POST['submit'])) {
                                   type="radio"
                                   name="A3"
                                   id="inlineRadio40"
-                                  value="Sering Sekali"
-                                  <?php echo $data[0]['A3'] == 'Sering Sekali' ? 'checked' : ''; ?> />
+                                  value="Sangat Sering"
+                                  <?php echo $data[0]['A3'] == 'Sangat Sering' ? 'checked' : ''; ?> />
                                 <label
                                   class="form-check-label"
-                                  for="inlineRadio40">Sering Sekali</label>
+                                  for="inlineRadio40">Sangat Sering</label>
                               </div>
                             </td>
                           </tr>
@@ -993,11 +993,11 @@ if (isset($_POST['submit'])) {
                                   type="radio"
                                   name="A4"
                                   id="inlineRadio44"
-                                  value="Sering Sekali"
-                                  <?php echo $data[0]['A4'] == 'Sering Sekali' ? 'checked' : ''; ?> />
+                                  value="Sangat Sering"
+                                  <?php echo $data[0]['A4'] == 'Sangat Sering' ? 'checked' : ''; ?> />
                                 <label
                                   class="form-check-label"
-                                  for="inlineRadio44">Sering Sekali</label>
+                                  for="inlineRadio44">Sangat Sering</label>
                               </div>
                             </td>
                           </tr>
@@ -1053,11 +1053,11 @@ if (isset($_POST['submit'])) {
                                   type="radio"
                                   name="A5"
                                   id="inlineRadio48"
-                                  value="Sering Sekali"
-                                  <?php echo $data[0]['A5'] == 'Sering Sekali' ? 'checked' : ''; ?> />
+                                  value="Sangat Sering"
+                                  <?php echo $data[0]['A5'] == 'Sangat Sering' ? 'checked' : ''; ?> />
                                 <label
                                   class="form-check-label"
-                                  for="inlineRadio48">Sering Sekali</label>
+                                  for="inlineRadio48">Sangat Sering</label>
                               </div>
                             </td>
                           </tr>
@@ -1118,11 +1118,11 @@ if (isset($_POST['submit'])) {
                                   type="radio"
                                   name="A6"
                                   id="inlineRadio52"
-                                  value="Sering Sekali"
-                                  <?php echo $data[0]['A6'] == 'Sering Sekali' ? 'checked' : ''; ?> />
+                                  value="Sangat Sering"
+                                  <?php echo $data[0]['A6'] == 'Sangat Sering' ? 'checked' : ''; ?> />
                                 <label
                                   class="form-check-label"
-                                  for="inlineRadio52">Sering Sekali</label>
+                                  for="inlineRadio52">Sangat Sering</label>
                               </div>
                             </td>
                           </tr>
@@ -1180,11 +1180,11 @@ if (isset($_POST['submit'])) {
                                   type="radio"
                                   name="A7"
                                   id="inlineRadio56"
-                                  value="Sering Sekali"
-                                  <?php echo $data[0]['A7'] == 'Sering Sekali' ? 'checked' : ''; ?> />
+                                  value="Sangat Sering"
+                                  <?php echo $data[0]['A7'] == 'Sangat Sering' ? 'checked' : ''; ?> />
                                 <label
                                   class="form-check-label"
-                                  for="inlineRadio56">Sering Sekali</label>
+                                  for="inlineRadio56">Sangat Sering</label>
                               </div>
                             </td>
                           </tr>
@@ -1239,7 +1239,7 @@ if (isset($_POST['submit'])) {
                             <th
                               scope="col"
                               class="text-white font-weight-normal">
-                              Sering Sekali
+                              Sangat Sering
                             </th>
                           </tr>
                         </thead>
@@ -1296,11 +1296,11 @@ if (isset($_POST['submit'])) {
                                   type="radio"
                                   name="S1"
                                   id="inlineRadio60"
-                                  value="Sering Sekali"
-                                  <?php echo $data[0]['S1'] == 'Sering Sekali' ? 'checked' : ''; ?> />
+                                  value="Sangat Sering"
+                                  <?php echo $data[0]['S1'] == 'Sangat Sering' ? 'checked' : ''; ?> />
                                 <label
                                   class="form-check-label"
-                                  for="inlineRadio60">Sering Sekali</label>
+                                  for="inlineRadio60">Sangat Sering</label>
                               </div>
                             </td>
                           </tr>
@@ -1359,11 +1359,11 @@ if (isset($_POST['submit'])) {
                                   type="radio"
                                   name="S2"
                                   id="inlineRadio64"
-                                  value="Sering Sekali"
-                                  <?php echo $data[0]['S2'] == 'Sering Sekali' ? 'checked' : ''; ?> />
+                                  value="Sangat Sering"
+                                  <?php echo $data[0]['S2'] == 'Sangat Sering' ? 'checked' : ''; ?> />
                                 <label
                                   class="form-check-label"
-                                  for="inlineRadio64">Sering Sekali</label>
+                                  for="inlineRadio64">Sangat Sering</label>
                               </div>
                             </td>
                           </tr>
@@ -1422,11 +1422,11 @@ if (isset($_POST['submit'])) {
                                   type="radio"
                                   name="S3"
                                   id="inlineRadio68"
-                                  value="Sering Sekali"
-                                  <?php echo $data[0]['S3'] == 'Sering Sekali' ? 'checked' : ''; ?> />
+                                  value="Sangat Sering"
+                                  <?php echo $data[0]['S3'] == 'Sangat Sering' ? 'checked' : ''; ?> />
                                 <label
                                   class="form-check-label"
-                                  for="inlineRadio68">Sering Sekali</label>
+                                  for="inlineRadio68">Sangat Sering</label>
                               </div>
                             </td>
                           </tr>
@@ -1482,11 +1482,11 @@ if (isset($_POST['submit'])) {
                                   type="radio"
                                   name="S4"
                                   id="inlineRadio72"
-                                  value="Sering Sekali"
-                                  <?php echo $data[0]['S4'] == 'Sering Sekali' ? 'checked' : ''; ?> />
+                                  value="Sangat Sering"
+                                  <?php echo $data[0]['S4'] == 'Sangat Sering' ? 'checked' : ''; ?> />
                                 <label
                                   class="form-check-label"
-                                  for="inlineRadio72">Sering Sekali</label>
+                                  for="inlineRadio72">Sangat Sering</label>
                               </div>
                             </td>
                           </tr>
@@ -1542,11 +1542,11 @@ if (isset($_POST['submit'])) {
                                   type="radio"
                                   name="S5"
                                   id="inlineRadio76"
-                                  value="Sering Sekali"
-                                  <?php echo $data[0]['S5'] == 'Sering Sekali' ? 'checked' : ''; ?> />
+                                  value="Sangat Sering"
+                                  <?php echo $data[0]['S5'] == 'Sangat Sering' ? 'checked' : ''; ?> />
                                 <label
                                   class="form-check-label"
-                                  for="inlineRadio76">Sering Sekali</label>
+                                  for="inlineRadio76">Sangat Sering</label>
                               </div>
                             </td>
                           </tr>
@@ -1606,11 +1606,11 @@ if (isset($_POST['submit'])) {
                                   type="radio"
                                   name="S6"
                                   id="inlineRadio80"
-                                  value="Sering Sekali"
-                                  <?php echo $data[0]['S6'] == 'Sering Sekali' ? 'checked' : ''; ?> />
+                                  value="Sangat Sering"
+                                  <?php echo $data[0]['S6'] == 'Sangat Sering' ? 'checked' : ''; ?> />
                                 <label
                                   class="form-check-label"
-                                  for="inlineRadio80">Sering Sekali</label>
+                                  for="inlineRadio80">Sangat Sering</label>
                               </div>
                             </td>
                           </tr>
@@ -1666,11 +1666,11 @@ if (isset($_POST['submit'])) {
                                   type="radio"
                                   name="S7"
                                   id="inlineRadio84"
-                                  value="Sering Sekali"
-                                  <?php echo $data[0]['S7'] == 'Sering Sekali' ? 'checked' : ''; ?> />
+                                  value="Sangat Sering"
+                                  <?php echo $data[0]['S7'] == 'Sangat Sering' ? 'checked' : ''; ?> />
                                 <label
                                   class="form-check-label"
-                                  for="inlineRadio84">Sering Sekali</label>
+                                  for="inlineRadio84">Sangat Sering</label>
                               </div>
                             </td>
                           </tr>

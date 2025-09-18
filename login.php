@@ -17,10 +17,10 @@ if (isset($_POST['submit'])) {
 
   // Cek username di database
   $result = mysqli_query($conn, "SELECT * FROM tb_user WHERE username = '$username'");
-  var_dump($result);
+
   if (mysqli_num_rows($result) === 1) {
     $row = mysqli_fetch_assoc($result);
-    var_dump($row);
+
     // Verifikasi password
     if (password_verify($password, $row['password'])) {
       $_SESSION['login'] = true;

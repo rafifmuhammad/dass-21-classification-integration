@@ -71,14 +71,14 @@ if ($endPage - $startPage + 1 < $jumlahLink) {
             <li>
               <i
                 class="ri-dashboard-line"
-                onclick="location.href='./index.html'"></i>
+                onclick="location.href='./index.php'"></i>
               <a href="./index.php">Dashboard</a>
             </li>
             <?php if ($_SESSION['role'] == 'Admin') : ?>
               <li>
                 <i
                   class="ri-group-line"
-                  onclick="location.href='./user_management.html'"></i>
+                  onclick="location.href='./user_management.php'"></i>
                 <a href="./user_management.php">Manajemen Pengguna</a>
               </li>
             <?php endif; ?>
@@ -117,7 +117,7 @@ if ($endPage - $startPage + 1 < $jumlahLink) {
                 <li>
                   <i
                     class="ri-database-2-line"
-                    onclick="location.href='./data.html'"></i>
+                    onclick="location.href='./data.php'"></i>
                   <a href="./data.php">Data</a>
                 </li>
                 <li>
@@ -200,11 +200,13 @@ if ($endPage - $startPage + 1 < $jumlahLink) {
                   <table id="myTable" class="table table-striped table-bordered w-100">
                     <thead>
                       <tr>
-                        <th class="text-center align-middle text-dark font-weight-bold">No</th>
-                        <th class="text-center align-middle text-dark font-weight-bold">Kode Data</th>
-                        <th class="text-center align-middle text-dark font-weight-bold">Kelas</th>
-                        <th class="text-center align-middle text-dark font-weight-bold">Jenis</th>
-                        <th class="text-center align-middle text-dark font-weight-bold">Aksi</th>
+                        <th class="text-center font-weight-bold text-dark">No</th>
+                        <th class="text-center font-weight-bold text-dark">P1 (Depresi)</th>
+                        <th class="text-center font-weight-bold text-dark">P2 (Kecemasan)</th>
+                        <th class="text-center font-weight-bold text-dark">P3 (Stres)</th>
+                        <th class="text-center font-weight-bold text-dark">Kelas</th>
+                        <th class="text-center font-weight-bold text-dark">Jenis</th>
+                        <th class="text-center font-weight-bold text-dark">Aksi</th>
                       </tr>
                     </thead>
                     <tbody>
@@ -213,8 +215,10 @@ if ($endPage - $startPage + 1 < $jumlahLink) {
                       foreach ($dataTesting as $data) : ?>
                         <tr>
                           <td class="text-center" scope="row"><?= $i; ?></td>
-                          <td class="text-center"><?= $data['kd_data'] ?></td>
-                          <td><?= $data['Kelas'] ?></td>
+                          <td class="text-center"><?= $data['P1'] ?></td>
+                          <td class="text-center"><?= $data['P2'] ?></td>
+                          <td class="text-center"><?= $data['P3'] ?></td>
+                          <td class="text-center"><?= $data['Kelas'] ?></td>
                           <td class="<?php echo $dt['Jenis'] == 'Training' ? 'text-success' : 'text-info'; ?> text-center"><?= $data['Jenis'] ?></td>
                           <td class="text-center">
                             <a

@@ -112,14 +112,14 @@ $probabilitasP3SangatBerat = hitungProbabilitas($p3SangatBerat, $jumlahKelas);
             <li>
               <i
                 class="ri-dashboard-line"
-                onclick="location.href='./index.html'"></i>
+                onclick="location.href='./indexd.html'"></i>
               <a href="./index.php">Dashboard</a>
             </li>
             <?php if ($_SESSION['role'] == 'Admin') : ?>
               <li>
                 <i
                   class="ri-group-line"
-                  onclick="location.href='./user_management.html'"></i>
+                  onclick="location.href='./user_managementd.html'"></i>
                 <a href="./user_management.php">Manajemen Pengguna</a>
               </li>
             <?php endif; ?>
@@ -158,7 +158,7 @@ $probabilitasP3SangatBerat = hitungProbabilitas($p3SangatBerat, $jumlahKelas);
                 <li>
                   <i
                     class="ri-database-2-line"
-                    onclick="location.href='./data.html'"></i>
+                    onclick="location.href='./datad.html'"></i>
                   <a href="./data.php">Data</a>
                 </li>
                 <li>

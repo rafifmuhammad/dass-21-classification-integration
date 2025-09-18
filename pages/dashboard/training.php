@@ -61,12 +61,12 @@ if ($endPage - $startPage + 1 < $jumlahLink) {
                     <h4>General</h4>
                     <ul>
                         <li>
-                            <i class="ri-dashboard-line" onclick="location.href='./index.html'"></i>
+                            <i class="ri-dashboard-line" onclick="location.href='./indexd.php'"></i>
                             <a href="./index.php">Dashboard</a>
                         </li>
                         <?php if ($_SESSION['role'] == 'Admin') : ?>
                             <li>
-                                <i class="ri-group-line" onclick="location.href='./user_management.html'"></i>
+                                <i class="ri-group-line" onclick="location.href='./user_managementd.php'"></i>
                                 <a href="./user_management.php">Manajemen Pengguna</a>
                             </li>
                         <?php endif; ?>
@@ -96,7 +96,7 @@ if ($endPage - $startPage + 1 < $jumlahLink) {
                             </li>
                             <ul class="collapse pl-0 ml-0" id="submenuDataset">
                                 <li>
-                                    <i class="ri-database-2-line" onclick="location.href='./data.html'"></i>
+                                    <i class="ri-database-2-line" onclick="location.href='./datad.php'"></i>
                                     <a href="./data.php">Data</a>
                                 </li>
                                 <li>
@@ -177,7 +177,9 @@ if ($endPage - $startPage + 1 < $jumlahLink) {
                                         <thead>
                                             <tr>
                                                 <th class="text-center font-weight-bold text-dark">No</th>
-                                                <th class="text-center font-weight-bold text-dark">Kode Data</th>
+                                                <th class="text-center font-weight-bold text-dark">P1 (Depresi)</th>
+                                                <th class="text-center font-weight-bold text-dark">P2 (Kecemasan)</th>
+                                                <th class="text-center font-weight-bold text-dark">P3 (Stres)</th>
                                                 <th class="text-center font-weight-bold text-dark">Kelas</th>
                                                 <th class="text-center font-weight-bold text-dark">Jenis</th>
                                             </tr>
@@ -188,8 +190,10 @@ if ($endPage - $startPage + 1 < $jumlahLink) {
                                             foreach ($dataTraining as $data) : ?>
                                                 <tr>
                                                     <th class="text-center text-dark" scope="row"><?= $i; ?></th>
-                                                    <td class="text-center"><?= $data['kd_data'] ?></td>
-                                                    <td><?= $data['Kelas'] ?></td>
+                                                    <td class="text-center"><?= $data['P1'] ?></td>
+                                                    <td class="text-center"><?= $data['P2'] ?></td>
+                                                    <td class="text-center"><?= $data['P3'] ?></td>
+                                                    <td class="text-center"><?= $data['Kelas'] ?></td>
                                                     <td class="<?php echo $dt['Jenis'] != 'Training' ? 'text-success' : 'text-info'; ?> text-center"><?= $data['Jenis'] ?></td>
                                                 </tr>
                                             <?php

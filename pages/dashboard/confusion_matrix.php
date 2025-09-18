@@ -97,14 +97,14 @@ $result_metrics = json_decode($response, true);
             <li>
               <i
                 class="ri-dashboard-line"
-                onclick="location.href='./index.html'"></i>
+                onclick="location.href='./index.php'"></i>
               <a href="./index.php">Dashboard</a>
             </li>
             <?php if ($_SESSION['role'] == 'Admin') : ?>
               <li>
                 <i
                   class="ri-group-line"
-                  onclick="location.href='./user_management.html'"></i>
+                  onclick="location.href='./user_management.php'"></i>
                 <a href="./user_management.php">Manajemen Pengguna</a>
               </li>
             <?php endif; ?>
@@ -143,7 +143,7 @@ $result_metrics = json_decode($response, true);
                 <li>
                   <i
                     class="ri-database-2-line"
-                    onclick="location.href='./data.html'"></i>
+                    onclick="location.href='./data.php'"></i>
                   <a href="./data.php">Data</a>
                 </li>
                 <li>

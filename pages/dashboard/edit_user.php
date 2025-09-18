@@ -72,15 +72,15 @@ if (isset($_POST['submit'])) {
             <li>
               <i
                 class="ri-dashboard-line"
-                onclick="location.href='./index.html'"></i>
+                onclick="location.href='./index.php'"></i>
               <a href="./index.php">Dashboard</a>
             </li>
             <?php if ($_SESSION['role'] == 'Admin') : ?>
               <li class="active">
                 <i
                   class="ri-group-line"
-                  onclick="location.href='./user_management.html'"></i>
-                <a href="./user_management.html">Manajemen Pengguna</a>
+                  onclick="location.href='./user_management.php'"></i>
+                <a href="./user_management.php">Manajemen Pengguna</a>
               </li>
             <?php endif; ?>
           </ul>
@@ -118,8 +118,8 @@ if (isset($_POST['submit'])) {
                 <li>
                   <i
                     class="ri-database-2-line"
-                    onclick="location.href='./data.html'"></i>
-                  <a href="./data.html">Data</a>
+                    onclick="location.href='./data.php'"></i>
+                  <a href="./data.php">Data</a>
                 </li>
                 <li>
                   <i class="ri-flask-line"></i>
@@ -127,7 +127,7 @@ if (isset($_POST['submit'])) {
                 </li>
                 <li>
                   <i class="ri-test-tube-line"></i>
-                  <a href="./testing.html">Testing</a>
+                  <a href="./testing.php">Testing</a>
                 </li>
               </ul>
               <!-- Dropdown menu end -->
@@ -135,7 +135,7 @@ if (isset($_POST['submit'])) {
             <?php if ($_SESSION['role'] == 'Admin') : ?>
               <li>
                 <i class="ri-infinity-fill"></i>
-                <a href="./probability.html">Probabilitas</a>
+                <a href="./probability.php">Probabilitas</a>
               </li>
               <li>
                 <i class="ri-formula"></i>
@@ -188,7 +188,7 @@ if (isset($_POST['submit'])) {
                 <a href="./index.php">Dashboard</a>
               </li>
               <li class="breadcrumb-item">
-                <a href="./user_management.html">Manajemen Pengguna</a>
+                <a href="./user_management.php">Manajemen Pengguna</a>
               </li>
               <li class="breadcrumb-item active" aria-current="page">
                 Ubah Data Pengguna

@@ -201,8 +201,8 @@ $page = $pagination['current_page'];
                         <th colspan="2" class="text-center align-middle text-dark font-weight-bold">Aksi</th>
                       </tr>
                       <tr>
-                        <td class="text-center font-weight-bold text-dark">Edit</td>
                         <td class="text-center font-weight-bold text-dark">Delete</td>
+                        <td class="text-center font-weight-bold text-dark">Detail</td>
                       </tr>
                     </thead>
                     <tbody>
