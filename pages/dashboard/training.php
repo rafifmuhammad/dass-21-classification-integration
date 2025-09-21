@@ -66,7 +66,7 @@ if ($endPage - $startPage + 1 < $jumlahLink) {
                         </li>
                         <?php if ($_SESSION['role'] == 'Admin') : ?>
                             <li>
-                                <i class="ri-group-line" onclick="location.href='./user_managementd.php'"></i>
+                                <i class="ri-group-line" onclick="location.href='./user_management.php'"></i>
                                 <a href="./user_management.php">Manajemen Pengguna</a>
                             </li>
                         <?php endif; ?>
@@ -75,16 +75,6 @@ if ($endPage - $startPage + 1 < $jumlahLink) {
                 <div class="box">
                     <h4>Learning & Testing</h4>
                     <ul>
-                        <li>
-                            <i class="ri-pages-line"></i>
-                            <a href="<?php echo $_SESSION['role'] == 'Admin' ? './select_user.php' : './../pengujian/index.php'; ?>">Klasifikasi</a>
-                        </li>
-                        <li>
-                            <i
-                                class="ri-contract-line"
-                                onclick="location.href='./history.php'"></i>
-                            <a href="./history.php">Riwayat Pengujian</a>
-                        </li>
                         <?php if ($_SESSION['role'] == 'Admin') : ?>
                             <!-- Dropdown menu start -->
                             <li class="dropdown active">
@@ -110,6 +100,16 @@ if ($endPage - $startPage + 1 < $jumlahLink) {
                             </ul>
                             <!-- Dropdown menu end -->
                         <?php endif; ?>
+                        <li>
+                            <i class="ri-pages-line"></i>
+                            <a href="<?php echo $_SESSION['role'] == 'Admin' ? './select_user.php' : './../pengujian/index.php'; ?>">Klasifikasi</a>
+                        </li>
+                        <li>
+                            <i
+                                class="ri-contract-line"
+                                onclick="location.href='./history.php'"></i>
+                            <a href="./history.php">Riwayat Pengujian</a>
+                        </li>
                         <li>
                             <i class="ri-infinity-fill"></i>
                             <a href="./probability.php">Probabilitas</a>

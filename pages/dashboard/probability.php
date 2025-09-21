@@ -128,16 +128,6 @@ $probabilitasP3SangatBerat = hitungProbabilitas($p3SangatBerat, $jumlahKelas);
         <div class="box">
           <h4>Learning & Testing</h4>
           <ul>
-            <li>
-              <i class="ri-pages-line"></i>
-              <a href="<?php echo $_SESSION['role'] == 'Admin' ? './select_user.php' : './../pengujian/index.php'; ?>">Klasifikasi</a>
-            </li>
-            <li>
-              <i
-                class="ri-contract-line"
-                onclick="location.href='./history.php'"></i>
-              <a href="./history.php">Riwayat Pengujian</a>
-            </li>
             <?php if ($_SESSION['role'] == 'Admin') : ?>
               <!-- Dropdown menu start -->
               <li class="dropdown">
@@ -172,6 +162,16 @@ $probabilitasP3SangatBerat = hitungProbabilitas($p3SangatBerat, $jumlahKelas);
               </ul>
               <!-- Dropdown menu end -->
             <?php endif; ?>
+            <li>
+              <i class="ri-pages-line"></i>
+              <a href="<?php echo $_SESSION['role'] == 'Admin' ? './select_user.php' : './../pengujian/index.php'; ?>">Klasifikasi</a>
+            </li>
+            <li>
+              <i
+                class="ri-contract-line"
+                onclick="location.href='./history.php'"></i>
+              <a href="./history.php">Riwayat Pengujian</a>
+            </li>
             <?php if ($_SESSION['role'] == 'Admin') : ?>
               <li class="active">
                 <i class="ri-infinity-fill"></i>
