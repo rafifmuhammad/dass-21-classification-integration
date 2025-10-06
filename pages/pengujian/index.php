@@ -1469,16 +1469,15 @@ if ($_SESSION['role'] != 'Admin') {
             <li>
               <h2>Website</h2>
             </li>
-            <li><a href="#">Skala DASS-21</a></li>
-            <li><a href="#">Masuk</a></li>
-            <li><a href="#">Daftar</a></li>
+            <li><a href="https://en.wikipedia.org/wiki/DASS_(psychology)">Skala DASS-21</a></li>
           </ul>
           <ul>
             <li>
               <h2>Metode dan Data</h2>
             </li>
-            <li><a href="#">Naive Bayes</a></li>
-            <li><a href="#">Sumber Data</a></li>
+            <li><a href="https://en.wikipedia.org/wiki/Naive_Bayes_classifier">Naive Bayes</a></li>
+            <li><a href="https://data.mendeley.com/datasets/br82d4xkj7/1">Sumber Data</a></li>
+            <li><a href="./../dashboard/experiment.php">Eksperimen</a></li>
           </ul>
         </div>
       </div>

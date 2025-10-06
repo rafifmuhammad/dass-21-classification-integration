@@ -114,6 +114,7 @@ if (isset($_SESSION['login'])) {
                         </li>
                         <li><a href="https://en.wikipedia.org/wiki/Naive_Bayes_classifier">Naive Bayes</a></li>
                         <li><a href="https://data.mendeley.com/datasets/br82d4xkj7/1">Sumber Data</a></li>
+                        <li><a href="./pages/dashboard/experiment.php">Eksperimen</a></li>
                     </ul>
                 </div>
             </div>
