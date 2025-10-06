@@ -48,7 +48,7 @@ foreach ($tests as $test) {
   $html .= "
           <tr>
             <td style='border:1px solid #000; padding:8px; text-align:center;'>{$no}</td>
-            <td style='border:1px solid #000; padding:8px; text-align:center;'>12-04-2025</td>
+            <td style='border:1px solid #000; padding:8px; text-align:center;'>{$test['tanggal_pengujian']}</td>
             <td style='border:1px solid #000; padding:8px; text-align:center;'>{$test['P1']}</td>
             <td style='border:1px solid #000; padding:8px; text-align:center;'>{$test['P2']}</td>
             <td style='border:1px solid #000; padding:8px; text-align:center;'>{$test['P3']}</td>

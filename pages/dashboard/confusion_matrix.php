@@ -137,18 +137,18 @@ $result_metrics = json_decode($response, true);
                   <a href="./data.php">Data</a>
                 </li>
                 <li>
-                  <i class="ri-flask-line"></i>
+                  <i class="ri-flask-line" onclick="location.href='./training.php'"></i>
                   <a href="./training.php">Training</a>
                 </li>
                 <li>
-                  <i class="ri-test-tube-line"></i>
+                  <i class="ri-test-tube-line" onclick="location.href='./testing.php'"></i>
                   <a href="./testing.php">Testing</a>
                 </li>
               </ul>
               <!-- Dropdown menu end -->
             <?php endif; ?>
             <li>
-              <i class="ri-pages-line"></i>
+              <i class="ri-pages-line" onclick="location.href='<?php echo $_SESSION['role'] == 'Admin' ? './select_user.php' : './../pengujian/index.php'; ?>'"></i>
               <a href="<?php echo $_SESSION['role'] == 'Admin' ? './select_user.php' : './../pengujian/index.php'; ?>">Klasifikasi</a>
             </li>
             <li>
@@ -159,11 +159,11 @@ $result_metrics = json_decode($response, true);
             </li>
             <?php if ($_SESSION['role'] == 'Admin') : ?>
               <li>
-                <i class="ri-infinity-fill"></i>
+                <i class="ri-infinity-fill" onclick="location.href='./probability.php'"></i>
                 <a href="./probability.php">Probabilitas</a>
               </li>
               <li class="active">
-                <i class="ri-formula"></i>
+                <i class="ri-formula" onclick="location.href='./confusion_matrix.php'"></i>
                 <a href="./confusion_matrix.php">Confusion Matrix</a>
               </li>
             <?php endif; ?>
