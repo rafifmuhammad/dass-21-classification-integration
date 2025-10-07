@@ -102,7 +102,6 @@ if (isset($_POST['submit'])) {
                     placeholder="Masukkan role"
                     required>
                     <option value="User">User</option>
-                    <option value="Admin">Admin</option>
                   </select>
                 </div>
                 <div class="form-group">
