@@ -15,12 +15,15 @@ if (!empty($kd_pengujian)) {
   $data = query("SELECT * FROM tb_pengujian WHERE kd_pengujian = '$kd_pengujian'");
 
   // Dapatkan nilai parameter
-  $p1 = convertCategorialtoNum($data[0]['P1']);
-  $p2 = convertCategorialtoNum($data[0]['P2']);
-  $p3 = convertCategorialtoNum($data[0]['P3']);
+  $p1 = $data[0]['P1'];
+  $p2 = $data[0]['P2'];
+  $p3 = $data[0]['P3'];
 
   // Dapatkan hasil klasifikasi
-  $url = "http://127.0.0.1:8000/classification-result?p1=$p1&p2=$p2&p3=$p3";
+  $url = "http://127.0.0.1:8000/classification-result?" .
+    "p1=" . urlencode($p1) . "&" .
+    "p2=" . urlencode($p2) . "&" .
+    "p3=" . urlencode($p3);
   $ch = curl_init($url);
 
   curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
@@ -41,12 +44,15 @@ if (!empty($kd_pengujian)) {
     'p2' => $_GET['p2'],
     'p3' => $_GET['p3'],
   ];
-  $p1 = convertCategorialtoNum($data['p1']);
-  $p2 = convertCategorialtoNum($data['p2']);
-  $p3 = convertCategorialtoNum($data['p3']);
+  $p1 = $data['p1'];
+  $p2 = $data['p2'];
+  $p3 = $data['p3'];
 
   // Dapatkan hasil klasifikasi
-  $url = "http://127.0.0.1:8000/classification-result?p1=$p1&p2=$p2&p3=$p3";
+  $url = "http://127.0.0.1:8000/classification-result?" .
+    "p1=" . urlencode($p1) . "&" .
+    "p2=" . urlencode($p2) . "&" .
+    "p3=" . urlencode($p3);
   $ch = curl_init($url);
 
   curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
