@@ -1703,11 +1703,12 @@ if (isset($_POST['submit'])) {
   <!-- DataTables BS4 -->
   <script src="https://cdn.datatables.net/1.13.5/js/jquery.dataTables.min.js"></script>
   <script src="https://cdn.datatables.net/1.13.5/js/dataTables.bootstrap4.min.js"></script>
-  $(document).ready(function() {
-  $(".toggle-sidebar-btn").on("click", function() {
-  $(".main-app").toggleClass("sidebar-collapsed");
-  });
-  });
+  <script>
+    $(document).ready(function() {
+      $(".toggle-sidebar-btn").on("click", function() {
+        $(".main-app").toggleClass("sidebar-collapsed");
+      });
+    });
   </script>
 </body>
 

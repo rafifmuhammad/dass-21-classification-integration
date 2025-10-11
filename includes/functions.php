@@ -614,14 +614,17 @@ function importDataExcel($filePath)
         $s5 = htmlspecialchars($row[21]);
         $s6 = htmlspecialchars($row[22]);
         $s7 = htmlspecialchars($row[23]);
-        $kelas = htmlspecialchars($row[24]);
+        $p1 = htmlspecialchars($row[24]);
+        $p2 = htmlspecialchars($row[25]);
+        $p3 = htmlspecialchars($row[26]);
+        $kelas = htmlspecialchars($row[27]);
 
         $query = "INSERT INTO tb_data
-            (kd_data, D1, D2, D3, D4, D5, D6, D7, A1, A2, A3, A4, A5, A6, A7, S1, S2, S3, S4, S5, S6, S7, Kelas, Jenis)
+            (kd_data, D1, D2, D3, D4, D5, D6, D7, A1, A2, A3, A4, A5, A6, A7, S1, S2, S3, S4, S5, S6, S7, P1, P2, P3, Kelas, Jenis)
             VALUES
             ('$kd_data', '$d1', '$d2', '$d3', '$d4', '$d5', '$d6', '$d7',
              '$a1', '$a2', '$a3', '$a4', '$a5', '$a6', '$a7',
-             '$s1', '$s2', '$s3', '$s4', '$s5', '$s6', '$s7',
+             '$s1', '$s2', '$s3', '$s4', '$s5', '$s6', '$s7', '$p1', '$p2', '$p3',
              '$kelas', NULL)";
 
         mysqli_query($conn, $query);
