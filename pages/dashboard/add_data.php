@@ -270,7 +270,8 @@ if (isset($_POST['submit'])) {
                                     type="radio"
                                     name="D1"
                                     id="inlineRadio1"
-                                    value="Tidak Pernah" />
+                                    value="Tidak Pernah"
+                                    required />
                                   <label
                                     class="form-check-label"
                                     for="inlineRadio1">Tidak Pernah</label>
@@ -329,7 +330,8 @@ if (isset($_POST['submit'])) {
                                     type="radio"
                                     name="D2"
                                     id="inlineRadio5"
-                                    value="Tidak Pernah" />
+                                    value="Tidak Pernah"
+                                    required />
                                   <label
                                     class="form-check-label"
                                     for="inlineRadio5">Tidak Pernah</label>
@@ -388,7 +390,8 @@ if (isset($_POST['submit'])) {
                                     type="radio"
                                     name="D3"
                                     id="inlineRadio9"
-                                    value="Tidak Pernah" />
+                                    value="Tidak Pernah"
+                                    required />
                                   <label
                                     class="form-check-label"
                                     for="inlineRadio9">Tidak Pernah</label>
@@ -444,7 +447,8 @@ if (isset($_POST['submit'])) {
                                     type="radio"
                                     name="D4"
                                     id="inlineRadio13"
-                                    value="Tidak Pernah" />
+                                    value="Tidak Pernah"
+                                    required />
                                   <label
                                     class="form-check-label"
                                     for="inlineRadio13">Tidak Pernah</label>
@@ -502,7 +506,8 @@ if (isset($_POST['submit'])) {
                                     type="radio"
                                     name="D5"
                                     id="inlineRadio17"
-                                    value="Tidak Pernah" />
+                                    value="Tidak Pernah"
+                                    required />
                                   <label
                                     class="form-check-label"
                                     for="inlineRadio17">Tidak Pernah</label>
@@ -558,7 +563,8 @@ if (isset($_POST['submit'])) {
                                     type="radio"
                                     name="D6"
                                     id="inlineRadio21"
-                                    value="Tidak Pernah" />
+                                    value="Tidak Pernah"
+                                    required />
                                   <label
                                     class="form-check-label"
                                     for="inlineRadio21">Tidak Pernah</label>
@@ -614,7 +620,8 @@ if (isset($_POST['submit'])) {
                                     type="radio"
                                     name="D7"
                                     id="inlineRadio25"
-                                    value="Tidak Pernah" />
+                                    value="Tidak Pernah"
+                                    required />
                                   <label
                                     class="form-check-label"
                                     for="inlineRadio25">Tidak Pernah</label>
@@ -726,7 +733,8 @@ if (isset($_POST['submit'])) {
                                     type="radio"
                                     name="A1"
                                     id="inlineRadio29"
-                                    value="Tidak Pernah" />
+                                    value="Tidak Pernah"
+                                    required />
                                   <label
                                     class="form-check-label"
                                     for="inlineRadio29">Tidak Pernah</label>
@@ -787,7 +795,8 @@ if (isset($_POST['submit'])) {
                                     type="radio"
                                     name="A2"
                                     id="inlineRadio33"
-                                    value="Tidak Pernah" />
+                                    value="Tidak Pernah"
+                                    required />
                                   <label
                                     class="form-check-label"
                                     for="inlineRadio33">Tidak Pernah</label>
@@ -845,7 +854,8 @@ if (isset($_POST['submit'])) {
                                     type="radio"
                                     name="A3"
                                     id="inlineRadio37"
-                                    value="Tidak Pernah" />
+                                    value="Tidak Pernah"
+                                    required />
                                   <label
                                     class="form-check-label"
                                     for="inlineRadio37">Tidak Pernah</label>
@@ -905,7 +915,8 @@ if (isset($_POST['submit'])) {
                                     type="radio"
                                     name="A4"
                                     id="inlineRadio41"
-                                    value="Tidak Pernah" />
+                                    value="Tidak Pernah"
+                                    required />
                                   <label
                                     class="form-check-label"
                                     for="inlineRadio41">Tidak Pernah</label>
@@ -961,7 +972,8 @@ if (isset($_POST['submit'])) {
                                     type="radio"
                                     name="A5"
                                     id="inlineRadio45"
-                                    value="Tidak Pernah" />
+                                    value="Tidak Pernah"
+                                    required />
                                   <label
                                     class="form-check-label"
                                     for="inlineRadio45">Tidak Pernah</label>
@@ -1022,7 +1034,8 @@ if (isset($_POST['submit'])) {
                                     type="radio"
                                     name="A6"
                                     id="inlineRadio49"
-                                    value="Tidak Pernah" />
+                                    value="Tidak Pernah"
+                                    required />
                                   <label
                                     class="form-check-label"
                                     for="inlineRadio49">Tidak Pernah</label>
@@ -1080,7 +1093,8 @@ if (isset($_POST['submit'])) {
                                     type="radio"
                                     name="A7"
                                     id="inlineRadio53"
-                                    value="Tidak Pernah" />
+                                    value="Tidak Pernah"
+                                    required />
                                   <label
                                     class="form-check-label"
                                     for="inlineRadio53">Tidak Pernah</label>
@@ -1192,7 +1206,8 @@ if (isset($_POST['submit'])) {
                                     type="radio"
                                     name="S1"
                                     id="inlineRadio57"
-                                    value="Tidak Pernah" />
+                                    value="Tidak Pernah"
+                                    required />
                                   <label
                                     class="form-check-label"
                                     for="inlineRadio57">Tidak Pernah</label>
@@ -1251,7 +1266,8 @@ if (isset($_POST['submit'])) {
                                     type="radio"
                                     name="S2"
                                     id="inlineRadio61"
-                                    value="Tidak Pernah" />
+                                    value="Tidak Pernah"
+                                    required />
                                   <label
                                     class="form-check-label"
                                     for="inlineRadio61">Tidak Pernah</label>
@@ -1310,7 +1326,8 @@ if (isset($_POST['submit'])) {
                                     type="radio"
                                     name="S3"
                                     id="inlineRadio65"
-                                    value="Tidak Pernah" />
+                                    value="Tidak Pernah"
+                                    required />
                                   <label
                                     class="form-check-label"
                                     for="inlineRadio65">Tidak Pernah</label>
@@ -1366,7 +1383,8 @@ if (isset($_POST['submit'])) {
                                     type="radio"
                                     name="S4"
                                     id="inlineRadio69"
-                                    value="Tidak Pernah" />
+                                    value="Tidak Pernah"
+                                    required />
                                   <label
                                     class="form-check-label"
                                     for="inlineRadio69">Tidak Pernah</label>
@@ -1422,7 +1440,8 @@ if (isset($_POST['submit'])) {
                                     type="radio"
                                     name="S5"
                                     id="inlineRadio73"
-                                    value="Tidak Pernah" />
+                                    value="Tidak Pernah"
+                                    required />
                                   <label
                                     class="form-check-label"
                                     for="inlineRadio73">Tidak Pernah</label>
@@ -1482,7 +1501,8 @@ if (isset($_POST['submit'])) {
                                     type="radio"
                                     name="S6"
                                     id="inlineRadio77"
-                                    value="Tidak Pernah" />
+                                    value="Tidak Pernah"
+                                    required />
                                   <label
                                     class="form-check-label"
                                     for="inlineRadio77">Tidak Pernah</label>
@@ -1538,7 +1558,8 @@ if (isset($_POST['submit'])) {
                                     type="radio"
                                     name="S7"
                                     id="inlineRadio81"
-                                    value="Tidak Pernah" />
+                                    value="Tidak Pernah"
+                                    required />
                                   <label
                                     class="form-check-label"
                                     for="inlineRadio81">Tidak Pernah</label>

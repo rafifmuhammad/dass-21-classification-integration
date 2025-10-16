@@ -81,8 +81,8 @@ if (isset($_GET['submit'])) {
             <li>
               <img src="./../../img/il-no-profile.jpg" alt="user_profile" />
               <div>
-                <h4>Rafif Muhammad</h4>
-                <p>@rafifbanner</p>
+                <h4><?= $_SESSION['name']; ?></h4>
+                <p><?= $_SESSION['username']; ?></p>
               </div>
             </li>
           </ul>

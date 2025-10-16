@@ -592,7 +592,7 @@ function importDataExcel($filePath)
         $row = $rows[$i];
 
         $kd_data = uniqid();
-        // D1–D7 mulai dari kolom 3 (indeks 3)
+
         $d1 = htmlspecialchars($row[3]);
         $d2 = htmlspecialchars($row[4]);
         $d3 = htmlspecialchars($row[5]);
