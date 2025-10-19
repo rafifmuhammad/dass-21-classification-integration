@@ -39,6 +39,24 @@ if (isset($_GET['submit'])) {
   $result = json_decode($response, true);
   $success = true;
 }
+
+if (isset($_GET['smote'])) {
+  $split_percentage = $_GET['split_percentage'];
+  $url = $url = "http://127.0.0.1:8000/model-experiment?split_percentage=$split_percentage&smote=True";
+  $ch = curl_init($url);
+
+  curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+
+  $response = curl_exec($ch);
+
+  if (curl_errno($ch)) {
+    echo 'Error: ' . curl_error($ch);
+  }
+  curl_close($ch);
+
+  $result = json_decode($response, true);
+  $success = true;
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -136,6 +154,7 @@ if (isset($_GET['submit'])) {
                           <option value="0.4">0.4</option>
                         </select>
                         <button class="btn btn-sm btn-primary" name="submit">Split Data</button>
+                        <!-- <button class="btn btn-sm btn-success" name="smote">Lakukan SMOTE</button> -->
                       </form>
                     </div>
                     <thead>

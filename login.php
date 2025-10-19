@@ -32,6 +32,8 @@ if (isset($_POST['submit'])) {
 
       header("Location: ./pages/dashboard/index.php");
       exit;
+    } else {
+      $error = true;
     }
   } else
     $error = true;

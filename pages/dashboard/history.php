@@ -198,11 +198,14 @@ $page = $pagination['current_page'];
                         <th rowspan="2" class="text-center align-middle text-dark font-weight-bold">Nama Pengguna</th>
                         <th rowspan="2" class="text-center align-middle text-dark font-weight-bold">Hasil Klasifikasi</th>
                         <th rowspan="2" class="text-center align-middle text-dark font-weight-bold">Tanggal Pengujian</th>
-                        <th colspan="2" class="text-center align-middle text-dark font-weight-bold">Aksi</th>
+                        <th colspan="3" class="text-center align-middle text-dark font-weight-bold">Aksi</th>
                       </tr>
                       <tr>
                         <td class="text-center font-weight-bold text-dark">Delete</td>
                         <td class="text-center font-weight-bold text-dark">Detail</td>
+                        <?php if ($_SESSION['role'] != 'Admin') : ?>
+                          <td class="text-center font-weight-bold text-dark">Cetak</td>
+                        <?php endif; ?>
                       </tr>
                     </thead>
                     <tbody>
@@ -222,6 +225,11 @@ $page = $pagination['current_page'];
                           <td class="text-center">
                             <a href="./detail_pengujian.php?kd_pengujian=<?= $ts['kd_pengujian']; ?>" class="btn btn-info btn-sm"><i class="ri-more-fill"></i></a>
                           </td>
+                          <?php if ($_SESSION['role'] != 'Admin') : ?>
+                            <td class="text-center">
+                              <a href="./test_preview_print.php?kd_pengujian=<?= $ts['kd_pengujian']; ?>" class="btn btn-info btn-sm"><i class="ri-printer-fill"></i></a>
+                            </td>
+                          <?php endif; ?>
                         </tr>
                       <?php
                         $i++;
