@@ -97,7 +97,12 @@ if ($_SESSION['role'] != 'Admin') {
         <div
           class="alert alert-light alert-border-left-primary d-flex"
           role="alert">
-          Instrumen DASS-21 ini dapat membantu Anda melakukan evaluasi mandiri terhadap kondisi kesehatan mental secara umum. Silakan mengisi setiap pertanyaan dengan jujur agar hasil lebih mencerminkan keadaan Anda.
+          Bacalah setiap pertanyaan dan pilih jawaban dari opsi yang diberikan atas apa yang dialami/rasakan responden dalam seminggu terakhir.<br>
+          Skala: <br>
+          0 = Tidak pernah atau tidak sesuai sama sekali dengan saya <br>
+          1 = Kadang-kadang atau sesuai dengan saya pada tingkat tertentu <br>
+          2 = Lumayan sering atau sesuai dengan saya pada tingkat yang masih dapat dipertimbangkan <br>
+          3 = Sangat sering atau sangat sesuai dengan saya
         </div>
         <!-- Alert end -->
 

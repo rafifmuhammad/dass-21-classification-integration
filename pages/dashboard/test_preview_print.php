@@ -104,6 +104,10 @@ tr { page-break-inside: avoid; }
   <table>
     <tr><td><strong>Nama Lengkap</strong></td><td>: ' . htmlspecialchars($t['nama']) . '</td></tr>
     <tr><td><strong>Tanggal Lahir</strong></td><td>: ' . htmlspecialchars($t['tanggal_lahir']) . '</td></tr>
+    <tr><td><strong>Parameter Depresi</strong></td><td>: ' . htmlspecialchars($t['P1']) . '</td></tr>
+    <tr><td><strong>Parameter Kecemasan</strong></td><td>: ' . htmlspecialchars($t['P2']) . '</td></tr>
+    <tr><td><strong>Parameter Stres</strong></td><td>: ' . htmlspecialchars($t['P3']) . '</td></tr>
+    <tr><td><strong>Hasil Klasifikasi Tingkat Kesehatan Mental</strong></td><td>: ' . htmlspecialchars($t['hasil_klasifikasi']) . '</td></tr>
     <tr><td><strong>Tanggal Pengujian</strong></td><td>: ' . htmlspecialchars($t['tanggal_pengujian']) . '</td></tr>
   </table>
 </div>
@@ -166,35 +170,9 @@ foreach ($pertanyaan as $kode => $teks) {
 
 $html .= '
   </tbody>
-</table>
-
-<table class="hasil">
-  <thead>
-    <tr>
-      <th>Tanggal Pengujian</th>
-      <th>Nama Lengkap</th>
-      <th>Parameter Depresi</th>
-      <th>Parameter Kecemasan</th>
-      <th>Parameter Stres</th>
-      <th>Hasil Klasifikasi</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>' . htmlspecialchars($t['tanggal_pengujian']) . '</td>
-      <td>' . htmlspecialchars($t['nama']) . '</td>
-      <td>' . htmlspecialchars($t['P1']) . '</td>
-      <td>' . htmlspecialchars($t['P2']) . '</td>
-      <td>' . htmlspecialchars($t['P3']) . '</td>
-      <td>' . htmlspecialchars($t['hasil_klasifikasi']) . '</td>
-    </tr>
-  </tbody>
-</table>
-
-</body>
-</html>';
+</table>';
 
 $dompdf->loadHtml($html);
 $dompdf->setPaper("A4", "portrait");
 $dompdf->render();
-$dompdf->stream("laporan_dass_21.pdf", ["Attachment" => false]);
+$dompdf->stream("laporan_dass_21_" . $t['kd_pengujian'] . ".pdf", ["Attachment" => false]);
