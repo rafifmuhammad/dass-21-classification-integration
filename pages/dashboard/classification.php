@@ -124,7 +124,7 @@ $info = [
     <link
       rel="stylesheet"
       href="./../../dist/bootstrap-4.0.0-dist/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="./../../dist/css/dashboard-style.css" />
+    <link rel="stylesheet" href="./../../dist/css/dashboard-style.css?v=1.2" />
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
@@ -373,7 +373,7 @@ $info = [
                           </p>
                           <a
                             href="./index.php"
-                            class="btn btn-danger mt-4"
+                            class="btn btn-danger mt-4 btn-sm"
                             data-aos="fade-left"
                             data-aos-duration="1000"
                             data-aos-delay="500"><i class="ri-home-4-line"></i> Kembali</a>
