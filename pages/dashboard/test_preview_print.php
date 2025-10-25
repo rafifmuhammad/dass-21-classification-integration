@@ -2,12 +2,8 @@
 session_start();
 
 if (!isset($_SESSION['login'])) {
-    header("Location: ../../index.php");
-    exit;
-}
-
-if ($_SESSION['role'] == 'Admin') {
-    header('Location: ./history.php');
+  header("Location: ../../index.php");
+  exit;
 }
 
 require __DIR__ . '/../../vendor/autoload.php';
@@ -29,7 +25,7 @@ $tests = query("
 ");
 
 if (count($tests) == 0) {
-    die('Data tidak ditemukan.');
+  die('Data tidak ditemukan.');
 }
 
 $t = $tests[0];
@@ -126,37 +122,37 @@ tr { page-break-inside: avoid; }
   <tbody>';
 
 $pertanyaan = [
-    'D1' => 'Saya merasa sulit untuk beristirahat',
-    'A1' => 'Saya merasa bibir saya sering kering',
-    'D2' => 'Saya sama sekali tidak dapat merasakan perasaan positif',
-    'A2' => 'Saya mengalami kesulitan bernafas (misalnya: seringkali terengah-engah atau tidak dapat bernafas padahal tidak melakukan aktivitas fisik sebelumnya)',
-    'D3' => 'Saya merasa sulit untuk meningkatkan inisiatif dalam melakukan sesuatu',
-    'S1' => 'Saya cenderung bereaksi berlebihan terhadap suatu situasi',
-    'A3' => 'Saya merasa gemetar (misalnya: pada tangan)',
-    'A4' => 'Saya merasa telah menghabiskan banyak energi untuk merasa cemas',
-    'A5' => 'Saya merasa khawatir dengan situasi dimana saya mungkin menjadi panik dan mempermalukan diri sendiri',
-    'D4' => 'Saya merasa tidak ada hal yang dapat diharapkan di masa depan',
-    'S2' => 'Saya menemukan diri saya mudah gelisah',
-    'S3' => 'Saya merasa sulit untuk bersantai',
-    'D5' => 'Saya merasa putus asa dan sedih',
-    'S4' => 'Saya tidak dapat memaklumi hal apapun yang menghalangi saya untuk menyelesaikan hal yang sedang saya lakukan',
-    'A6' => 'Saya merasa saya hampir panik',
-    'D6' => 'Saya tidak merasa antusias dalam hal apapun',
-    'D7' => 'Saya merasa bahwa saya tidak berharga sebagai seorang manusia',
-    'S5' => 'Saya merasa bahwa saya mudah tersinggung',
-    'A7' => 'Saya menyadari kegiatan jantung, walaupun saya tidak sehabis melakukan aktivitas fisik (misalnya: merasa detak jantung meningkat atau melemah)',
-    'S6' => 'Saya merasa takut tanpa alasan yang jelas',
-    'S7' => 'Saya merasa bahwa hidup tidak berarti'
+  'D1' => 'Saya merasa sulit untuk beristirahat',
+  'A1' => 'Saya merasa bibir saya sering kering',
+  'D2' => 'Saya sama sekali tidak dapat merasakan perasaan positif',
+  'A2' => 'Saya mengalami kesulitan bernafas (misalnya: seringkali terengah-engah atau tidak dapat bernafas padahal tidak melakukan aktivitas fisik sebelumnya)',
+  'D3' => 'Saya merasa sulit untuk meningkatkan inisiatif dalam melakukan sesuatu',
+  'S1' => 'Saya cenderung bereaksi berlebihan terhadap suatu situasi',
+  'A3' => 'Saya merasa gemetar (misalnya: pada tangan)',
+  'A4' => 'Saya merasa telah menghabiskan banyak energi untuk merasa cemas',
+  'A5' => 'Saya merasa khawatir dengan situasi dimana saya mungkin menjadi panik dan mempermalukan diri sendiri',
+  'D4' => 'Saya merasa tidak ada hal yang dapat diharapkan di masa depan',
+  'S2' => 'Saya menemukan diri saya mudah gelisah',
+  'S3' => 'Saya merasa sulit untuk bersantai',
+  'D5' => 'Saya merasa putus asa dan sedih',
+  'S4' => 'Saya tidak dapat memaklumi hal apapun yang menghalangi saya untuk menyelesaikan hal yang sedang saya lakukan',
+  'A6' => 'Saya merasa saya hampir panik',
+  'D6' => 'Saya tidak merasa antusias dalam hal apapun',
+  'D7' => 'Saya merasa bahwa saya tidak berharga sebagai seorang manusia',
+  'S5' => 'Saya merasa bahwa saya mudah tersinggung',
+  'A7' => 'Saya menyadari kegiatan jantung, walaupun saya tidak sehabis melakukan aktivitas fisik (misalnya: merasa detak jantung meningkat atau melemah)',
+  'S6' => 'Saya merasa takut tanpa alasan yang jelas',
+  'S7' => 'Saya merasa bahwa hidup tidak berarti'
 ];
 
 $no = 1;
 foreach ($pertanyaan as $kode => $teks) {
-    $val = isset($t[$kode]) ? $t[$kode] : '';
-    $col1 = ($val == 'Tidak Pernah') ? '☑' : '☐';
-    $col2 = ($val == 'Kadang-kadang') ? '☑' : '☐';
-    $col3 = ($val == 'Lumayan Sering') ? '☑' : '☐';
-    $col4 = ($val == 'Sangat Sering') ? '☑' : '☐';
-    $html .= "
+  $val = isset($t[$kode]) ? $t[$kode] : '';
+  $col1 = ($val == 'Tidak Pernah') ? '☑' : '☐';
+  $col2 = ($val == 'Kadang-kadang') ? '☑' : '☐';
+  $col3 = ($val == 'Lumayan Sering') ? '☑' : '☐';
+  $col4 = ($val == 'Sangat Sering') ? '☑' : '☐';
+  $html .= "
     <tr>
       <td>{$no}</td>
       <td>{$teks}</td>
@@ -165,7 +161,7 @@ foreach ($pertanyaan as $kode => $teks) {
       <td>{$col3}</td>
       <td>{$col4}</td>
     </tr>";
-    $no++;
+  $no++;
 }
 
 $html .= '

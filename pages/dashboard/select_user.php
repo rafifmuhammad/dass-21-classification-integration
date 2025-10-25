@@ -131,7 +131,7 @@ $users = query("SELECT * FROM tb_user WHERE role = 'User'");
           <h4>Action</h4>
           <ul>
             <li>
-              <i class="ri-logout-circle-line"></i>
+              <i class="ri-logout-circle-line" onclick="location.href='./logout.php'"></i>
               <a href="./logout.php">Keluar</a>
             </li>
           </ul>

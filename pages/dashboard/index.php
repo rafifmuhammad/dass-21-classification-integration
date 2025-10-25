@@ -140,7 +140,7 @@ $jumlahPengujian = query("SELECT count(*) as jumlah_data FROM tb_pengujian");
           <h4>Action</h4>
           <ul>
             <li>
-              <i class="ri-logout-circle-line"></i>
+              <i class="ri-logout-circle-line" onclick="location.href='./logout.php'"></i>
               <a href="./logout.php">Keluar</a>
             </li>
           </ul>

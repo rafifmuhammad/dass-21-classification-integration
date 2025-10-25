@@ -140,7 +140,7 @@ $page = $pagination['current_page'];
           <h4>Action</h4>
           <ul>
             <li>
-              <i class="ri-logout-circle-line"></i>
+              <i class="ri-logout-circle-line" onclick="location.href='./logout.php'"></i>
               <a href="./logout.php">Keluar</a>
             </li>
           </ul>
@@ -203,9 +203,7 @@ $page = $pagination['current_page'];
                       <tr>
                         <td class="text-center font-weight-bold text-dark">Delete</td>
                         <td class="text-center font-weight-bold text-dark">Detail</td>
-                        <?php if ($_SESSION['role'] != 'Admin') : ?>
-                          <td class="text-center font-weight-bold text-dark">Cetak</td>
-                        <?php endif; ?>
+                        <td class="text-center font-weight-bold text-dark">Cetak</td>
                       </tr>
                     </thead>
                     <tbody>
@@ -225,11 +223,9 @@ $page = $pagination['current_page'];
                           <td class="text-center">
                             <a href="./detail_pengujian.php?kd_pengujian=<?= $ts['kd_pengujian']; ?>" class="btn btn-info btn-sm"><i class="ri-more-fill"></i></a>
                           </td>
-                          <?php if ($_SESSION['role'] != 'Admin') : ?>
-                            <td class="text-center">
-                              <a href="./test_preview_print.php?kd_pengujian=<?= $ts['kd_pengujian']; ?>" class="btn btn-info btn-sm"><i class="ri-printer-fill"></i></a>
-                            </td>
-                          <?php endif; ?>
+                          <td class="text-center">
+                            <a href="./test_preview_print.php?kd_pengujian=<?= $ts['kd_pengujian']; ?>" class="btn btn-info btn-sm"><i class="ri-printer-fill"></i></a>
+                          </td>
                         </tr>
                       <?php
                         $i++;
