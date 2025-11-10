@@ -203,7 +203,6 @@ if (isset($_POST['split_data'])) {
                     <section class="data-table">
                         <div class="wrapper">
                             <div class="card text-left">
-                                <img class="card-img-top" src="holder.js/100px180/" alt="">
                                 <div class="card-body">
                                     <?php if (isset($error)) : ?>
                                         <div class="alert <?php echo $error ? 'alert-danger' : 'alert-success'; ?> alert-dismissible fade show" role="alert">

@@ -116,7 +116,7 @@ tr { page-break-inside: avoid; }
       <th>Tidak Pernah</th>
       <th>Kadang-Kadang</th>
       <th>Lumayan Sering</th>
-      <th>Sangat Sering</th>
+      <th>Sering Sekali</th>
     </tr>
   </thead>
   <tbody>';
@@ -151,7 +151,7 @@ foreach ($pertanyaan as $kode => $teks) {
   $col1 = ($val == 'Tidak Pernah') ? '☑' : '☐';
   $col2 = ($val == 'Kadang-kadang') ? '☑' : '☐';
   $col3 = ($val == 'Lumayan Sering') ? '☑' : '☐';
-  $col4 = ($val == 'Sangat Sering') ? '☑' : '☐';
+  $col4 = ($val == 'Sering Sekali') ? '☑' : '☐';
   $html .= "
     <tr>
       <td>{$no}</td>

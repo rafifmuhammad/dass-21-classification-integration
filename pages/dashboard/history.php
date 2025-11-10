@@ -224,7 +224,7 @@ $page = $pagination['current_page'];
                             <a href="./detail_pengujian.php?kd_pengujian=<?= $ts['kd_pengujian']; ?>" class="btn btn-info btn-sm"><i class="ri-more-fill"></i></a>
                           </td>
                           <td class="text-center">
-                            <a href="./test_preview_print.php?kd_pengujian=<?= $ts['kd_pengujian']; ?>" class="btn btn-info btn-sm"><i class="ri-printer-fill"></i></a>
+                            <a href="./test_preview_print.php?kd_pengujian=<?= $ts['kd_pengujian']; ?>" class="btn btn-success btn-sm"><i class="ri-printer-fill"></i></a>
                           </td>
                         </tr>
                       <?php

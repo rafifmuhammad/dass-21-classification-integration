@@ -178,7 +178,11 @@ if (isset($_GET['smote'])) {
                         </th>
                         <th
                           class="text-center align-middle bg-info text-white">
-                          Akurasi
+                          Akurasi Testing
+                        </th>
+                        <th
+                          class="text-center align-middle bg-info text-white">
+                          Akurasi Training
                         </th>
                       </tr>
                     </thead>
@@ -192,6 +196,7 @@ if (isset($_GET['smote'])) {
                         <td class="text-center"><?= $result['naive_bayes']['precision'] * 100 . "%"; ?></td>
                         <td class="text-center"><?= $result['naive_bayes']['f1_score'] * 100 . "%"; ?></td>
                         <td class="text-center"><?= $result['naive_bayes']['akurasi'] * 100 . "%"; ?></td>
+                        <td class="text-center"><?= $result['naive_bayes']['akurasi_training'] * 100 . "%"; ?></td>
                       </tr>
                       <tr>
                         <td
@@ -202,6 +207,7 @@ if (isset($_GET['smote'])) {
                         <td class="text-center"><?= $result['decision_tree']['precision'] * 100 . "%"; ?></td>
                         <td class="text-center"><?= $result['decision_tree']['f1_score'] * 100 . "%"; ?></td>
                         <td class="text-center"><?= $result['decision_tree']['akurasi'] * 100 . "%"; ?></td>
+                        <td class="text-center"><?= $result['decision_tree']['akurasi_training'] * 100 . "%"; ?></td>
                       </tr>
                       <tr>
                         <td
@@ -212,6 +218,7 @@ if (isset($_GET['smote'])) {
                         <td class="text-center"><?= $result['knn']['precision'] * 100 . "%"; ?></td>
                         <td class="text-center"><?= $result['knn']['f1_score'] * 100 . "%"; ?></td>
                         <td class="text-center"><?= $result['knn']['akurasi'] * 100 . "%"; ?></td>
+                        <td class="text-center"><?= $result['knn']['akurasi_training'] * 100 . "%"; ?></td>
                       </tr>
                       <tr>
                         <td
@@ -222,6 +229,7 @@ if (isset($_GET['smote'])) {
                         <td class="text-center"><?= $result['svm']['precision'] * 100 . "%"; ?></td>
                         <td class="text-center"><?= $result['svm']['f1_score'] * 100 . "%"; ?></td>
                         <td class="text-center"><?= $result['svm']['akurasi'] * 100 . "%"; ?></td>
+                        <td class="text-center"><?= $result['svm']['akurasi_training'] * 100 . "%"; ?></td>
                       </tr>
                     </tbody>
                   </table>
