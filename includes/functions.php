@@ -154,7 +154,7 @@ function hitungProbabilitasKondisional($jumlahParameter, $jumlahKelas, $prefix =
         $formattedKelasKey = $prefix . formatKeyKelas($kelas);
         $jumlahKelasK = $jumlahKelas[$formattedKelasKey] ?? 0;
 
-        // Laplace smoothing HANYA jika jumlahNilai == 0
+        // Laplace smoothing jika jumlahNilai == 0
         if ($jumlahKelasK > 0) {
             if ($jumlahNilai == 0) {
                 // Laplace smoothing untuk nilai nol

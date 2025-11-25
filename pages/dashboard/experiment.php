@@ -8,6 +8,7 @@ if (!isset($_SESSION['login'])) {
 
 include './../../includes/functions.php';
 
+// Dapatkan hasil metrik untuk perbandingan model Naive Bayes
 $url = "http://127.0.0.1:8000/model-experiment";
 $ch = curl_init($url);
 
@@ -22,6 +23,22 @@ curl_close($ch);
 
 $result = json_decode($response, true);
 
+// Dapatkan akurasi untuk train test validation
+$url = "http://127.0.0.1:8000/train-test-validation";
+$ch = curl_init($url);
+
+curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+
+$response = curl_exec($ch);
+
+if (curl_errno($ch)) {
+  echo 'Error: ' . curl_error($ch);
+}
+curl_close($ch);
+
+$result_train_test_val = json_decode($response, true);
+
+// Ganti Split untuk evaluasi metrik model Naive Bayes
 if (isset($_GET['submit'])) {
   $split_percentage = $_GET['split_percentage'];
   $url = $url = "http://127.0.0.1:8000/model-experiment?split_percentage=$split_percentage";
@@ -56,6 +73,25 @@ if (isset($_GET['smote'])) {
 
   $result = json_decode($response, true);
   $success = true;
+}
+
+// untuk train test validation
+if (isset($_GET['train_test_val'])) {
+  $split_percentage = $_GET['split_percentage'];
+  $url = $url = "http://127.0.0.1:8000/train-test-validation?split_percentage=$split_percentage";
+  $ch = curl_init($url);
+
+  curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+
+  $response = curl_exec($ch);
+
+  if (curl_errno($ch)) {
+    echo 'Error: ' . curl_error($ch);
+  }
+  curl_close($ch);
+
+  $result_train_test_val = json_decode($response, true);
+  $train_test_val_success = true;
 }
 ?>
 <!DOCTYPE html>
@@ -132,7 +168,7 @@ if (isset($_GET['smote'])) {
           <div class="wrapper">
             <div class="card text-left">
               <div class="card-body">
-                <h4 class="card-title">Tabel Eksperimen</h4>
+                <h4 class="card-title">Tabel Perbandingan Model Naive Bayes</h4>
                 <hr />
                 <?php if (isset($success)) : ?>
                   <div class="alert <?php echo $success ? 'alert-success' : 'alert-danger'; ?> alert-dismissible fade show" role="alert">
@@ -190,24 +226,35 @@ if (isset($_GET['smote'])) {
                       <tr>
                         <td
                           class="text-dark font-weight-bold">
-                          Naive Bayes
+                          Multinomial Naive Bayes
                         </td>
-                        <td class="text-center"><?= $result['naive_bayes']['recall'] * 100 . "%"; ?></td>
-                        <td class="text-center"><?= $result['naive_bayes']['precision'] * 100 . "%"; ?></td>
-                        <td class="text-center"><?= $result['naive_bayes']['f1_score'] * 100 . "%"; ?></td>
-                        <td class="text-center"><?= $result['naive_bayes']['akurasi'] * 100 . "%"; ?></td>
-                        <td class="text-center"><?= $result['naive_bayes']['akurasi_training'] * 100 . "%"; ?></td>
+                        <td class="text-center"><?= $result['multinomial_nb']['recall'] * 100 . "%"; ?></td>
+                        <td class="text-center"><?= $result['multinomial_nb']['precision'] * 100 . "%"; ?></td>
+                        <td class="text-center"><?= $result['multinomial_nb']['f1_score'] * 100 . "%"; ?></td>
+                        <td class="text-center"><?= $result['multinomial_nb']['akurasi'] * 100 . "%"; ?></td>
+                        <td class="text-center"><?= $result['multinomial_nb']['akurasi_training'] * 100 . "%"; ?></td>
                       </tr>
                       <tr>
                         <td
                           class="text-dark font-weight-bold">
-                          Decision Tree
+                          Gaussian Naive Bayes
                         </td>
-                        <td class="text-center"><?= $result['decision_tree']['recall'] * 100 . "%"; ?></td>
-                        <td class="text-center"><?= $result['decision_tree']['precision'] * 100 . "%"; ?></td>
-                        <td class="text-center"><?= $result['decision_tree']['f1_score'] * 100 . "%"; ?></td>
-                        <td class="text-center"><?= $result['decision_tree']['akurasi'] * 100 . "%"; ?></td>
-                        <td class="text-center"><?= $result['decision_tree']['akurasi_training'] * 100 . "%"; ?></td>
+                        <td class="text-center"><?= $result['gaussian_nb']['recall'] * 100 . "%"; ?></td>
+                        <td class="text-center"><?= $result['gaussian_nb']['precision'] * 100 . "%"; ?></td>
+                        <td class="text-center"><?= $result['gaussian_nb']['f1_score'] * 100 . "%"; ?></td>
+                        <td class="text-center"><?= $result['gaussian_nb']['akurasi'] * 100 . "%"; ?></td>
+                        <td class="text-center"><?= $result['gaussian_nb']['akurasi_training'] * 100 . "%"; ?></td>
+                      </tr>
+                      <tr>
+                        <td
+                          class="text-dark font-weight-bold">
+                          Categorical Naive Bayes
+                        </td>
+                        <td class="text-center"><?= $result['categorical_nb']['recall'] * 100 . "%"; ?></td>
+                        <td class="text-center"><?= $result['categorical_nb']['precision'] * 100 . "%"; ?></td>
+                        <td class="text-center"><?= $result['categorical_nb']['f1_score'] * 100 . "%"; ?></td>
+                        <td class="text-center"><?= $result['categorical_nb']['akurasi'] * 100 . "%"; ?></td>
+                        <td class="text-center"><?= $result['categorical_nb']['akurasi_training'] * 100 . "%"; ?></td>
                       </tr>
                       <tr>
                         <td
@@ -223,13 +270,13 @@ if (isset($_GET['smote'])) {
                       <tr>
                         <td
                           class="text-dark font-weight-bold">
-                          Support Vector Machine
+                          Decision Tree
                         </td>
-                        <td class="text-center"><?= $result['svm']['recall'] * 100 . "%"; ?></td>
-                        <td class="text-center"><?= $result['svm']['precision'] * 100 . "%"; ?></td>
-                        <td class="text-center"><?= $result['svm']['f1_score'] * 100 . "%"; ?></td>
-                        <td class="text-center"><?= $result['svm']['akurasi'] * 100 . "%"; ?></td>
-                        <td class="text-center"><?= $result['svm']['akurasi_training'] * 100 . "%"; ?></td>
+                        <td class="text-center"><?= $result['decision_tree']['recall'] * 100 . "%"; ?></td>
+                        <td class="text-center"><?= $result['decision_tree']['precision'] * 100 . "%"; ?></td>
+                        <td class="text-center"><?= $result['decision_tree']['f1_score'] * 100 . "%"; ?></td>
+                        <td class="text-center"><?= $result['decision_tree']['akurasi'] * 100 . "%"; ?></td>
+                        <td class="text-center"><?= $result['decision_tree']['akurasi_training'] * 100 . "%"; ?></td>
                       </tr>
                     </tbody>
                   </table>
@@ -240,7 +287,105 @@ if (isset($_GET['smote'])) {
         </section>
       </div>
       <!-- Data table end -->
+
+      <!-- Data table start -->
+      <section class="data-table mt-3">
+        <div class="wrapper">
+          <div class="card text-left">
+            <div class="card-body">
+              <h4 class="card-title">Tabel Train Test Validation</h4>
+              <hr />
+              <?php if (isset($train_test_val_success)) : ?>
+                <div class="alert <?php echo $train_test_val_success ? 'alert-success' : 'alert-danger'; ?> alert-dismissible fade show" role="alert">
+                  <?php echo $train_test_val_success ? 'Berhasil melakukan split sebesar ' . $_GET['split_percentage'] * 100 . "% testing" : 'Gagal melakukan split'; ?>
+                  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+              <?php endif; ?>
+              <div class="table-card-wrapper">
+                <table class="table table-bordered table-hover">
+                  <div class="form-group d-flex justify-content-around align-items-center">
+                    <form action="">
+                      <label for="split_percentage">Tentukan Pembagian Data</label>
+                      <select class="form-control col-md-4" id="split_percentage" name="split_percentage">
+                        <option value="0.2">0.2 (Default)</option>
+                        <option value="0.15">0.15</option>
+                        <option value="0.3">0.3</option>
+                        <option value="0.4">0.4</option>
+                      </select>
+                      <button class="btn btn-sm btn-primary" name="train_test_val">Split Data</button>
+                      <!-- <button class="btn btn-sm btn-success" name="smote">Lakukan SMOTE</button> -->
+                    </form>
+                  </div>
+                  <thead>
+                    <tr>
+                      <th
+                        rowspan="2"
+                        class="text-center align-middle bg-info text-white">
+                        Model
+                      </th>
+                      <th
+                        class="text-center align-middle bg-info text-white">
+                        Akurasi Validasi
+                      </th>
+                      <th
+                        class="text-center align-middle bg-info text-white">
+                        Akurasi Testing
+                      </th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td
+                        class="text-dark font-weight-bold">
+                        Multinomial Naive Bayes
+                      </td>
+                      <td class="text-center"><?= $result_train_test_val['multinomial_nb']['val_accuracy'] * 100 . "%"; ?></td>
+                      <td class="text-center"><?= $result_train_test_val['multinomial_nb']['test_accuracy'] * 100 . "%"; ?></td>
+                    </tr>
+                    <tr>
+                      <td
+                        class="text-dark font-weight-bold">
+                        Gaussian Naive Bayes
+                      </td>
+                      <td class="text-center"><?= $result_train_test_val['gaussian_nb']['val_accuracy'] * 100 . "%"; ?></td>
+                      <td class="text-center"><?= $result_train_test_val['gaussian_nb']['test_accuracy'] * 100 . "%"; ?></td>
+                    </tr>
+                    <tr>
+                      <td
+                        class="text-dark font-weight-bold">
+                        Categorical Naive Bayes
+                      </td>
+                      <td class="text-center"><?= $result_train_test_val['categorical_nb']['val_accuracy'] * 100 . "%"; ?></td>
+                      <td class="text-center"><?= $result_train_test_val['categorical_nb']['test_accuracy'] * 100 . "%"; ?></td>
+                    </tr>
+                    <tr>
+                    <tr>
+                      <td
+                        class="text-dark font-weight-bold">
+                        K-Nearest Neighbors
+                      </td>
+                      <td class="text-center"><?= $result_train_test_val['knn']['val_accuracy'] * 100 . "%"; ?></td>
+                      <td class="text-center"><?= $result_train_test_val['knn']['test_accuracy'] * 100 . "%"; ?></td>
+                    </tr>
+                    <tr>
+                      <td
+                        class="text-dark font-weight-bold">
+                        Decision Tree
+                      </td>
+                      <td class="text-center"><?= $result_train_test_val['decision_tree']['val_accuracy'] * 100 . "%"; ?></td>
+                      <td class="text-center"><?= $result_train_test_val['decision_tree']['test_accuracy'] * 100 . "%"; ?></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
     </div>
+    <!-- Data table end -->
   </div>
   </div>
   <!-- Content end -->
